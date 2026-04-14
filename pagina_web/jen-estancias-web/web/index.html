@@ -16,7 +16,7 @@
     <div class="nav-brand">
       <span class="nav-logo">JEN</span>
       <span class="nav-sep">·</span>
-      <span class="nav-sub">Estancias 2025</span>
+      <span class="nav-sub">Estancias 2026</span>
     </div>
     <ul class="nav-links">
       <li><a href="#proyecto">Proyecto</a></li>
@@ -34,12 +34,16 @@
   <header id="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
+    <canvas id="embers-canvas"></canvas>
+    <div class="hero-line hero-line--top"></div>
+    <div class="hero-line hero-line--bottom"></div>
     <div class="grain"></div>
     <div class="hero-content">
       <div class="hero-ref">
         <span class="tag-line">PROPUESTA TÉCNICA</span>
-        <span class="ref-num">REF · JEN-2025-001</span>
+        <span class="ref-num">REF · JEN-2026-001</span>
       </div>
+      <div class="hero-live-badge">PROYECTO EN CURSO · ABRIL 2026</div>
       <h1 class="hero-title">
         <span class="title-line-1">Navas de</span>
         <span class="title-line-2">Tolosa</span>
@@ -66,7 +70,7 @@
       <span>Desplaza</span>
       <div class="scroll-line"></div>
     </div>
-    <div class="hero-date">16 · ABRIL · 2025</div>
+    <div class="hero-date">ABRIL · 2026</div>
   </header>
 
   <!-- ===== 001 · EL PROYECTO ===== -->
@@ -85,11 +89,11 @@
             <div class="info-card-header">FICHA DEL PROYECTO</div>
             <div class="info-row">
               <span class="info-key">Ref. Presupuesto</span>
-              <span class="info-val">JEN-2025-001</span>
+              <span class="info-val">JEN-2026-001</span>
             </div>
             <div class="info-row">
               <span class="info-key">Fecha</span>
-              <span class="info-val">Abril 2025</span>
+              <span class="info-val">Abril 2026</span>
             </div>
             <div class="info-row">
               <span class="info-key">Cliente</span>
@@ -237,80 +241,89 @@
       <div class="section-label">003 — Fases de Ejecución</div>
       <h2 class="section-title">Metodología<br /><em>de trabajo.</em></h2>
 
-      <div class="fases-grid">
+      <div class="fases-timeline">
 
         <div class="fase-item reveal">
-          <div class="fase-header">
+          <div class="fase-timeline-left">
             <span class="fase-num">FASE 0</span>
             <span class="fase-tiempo">Semana 1</span>
           </div>
-          <h3>Arranque y planificación</h3>
-          <p>Definición del alcance del proyecto, validación del guion con el Museo, aprobación del cronograma y asignación de responsabilidades técnicas dentro del equipo.</p>
-          <div class="fase-tags">
-            <span>Reunión de arranque</span>
-            <span>Cronograma</span>
-            <span>Validación cliente</span>
+          <div class="fase-body">
+            <h3>Arranque y planificación</h3>
+            <p>Definición del alcance del proyecto, validación del guion con el Museo, aprobación del cronograma y asignación de responsabilidades técnicas dentro del equipo.</p>
+            <div class="fase-tags">
+              <span>Reunión de arranque</span>
+              <span>Cronograma</span>
+              <span>Validación cliente</span>
+            </div>
           </div>
         </div>
 
         <div class="fase-item reveal">
-          <div class="fase-header">
+          <div class="fase-timeline-left">
             <span class="fase-num">FASE 1</span>
+            <span class="fase-tiempo">Semanas 1–2</span>
+          </div>
+          <div class="fase-body">
+            <h3>Investigación y guion</h3>
+            <p>Investigación histórica exhaustiva sobre la Batalla de las Navas de Tolosa. Elaboración del guion literario y técnico del cortometraje con apoyo de IA generativa.</p>
+            <div class="fase-tags">
+              <span>Fuentes históricas</span>
+              <span>Guion literario</span>
+              <span>ChatGPT · Claude</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fase-item reveal">
+          <div class="fase-timeline-left">
+            <span class="fase-num">FASE 2</span>
+            <span class="fase-tiempo">Semanas 1–3</span>
+          </div>
+          <div class="fase-body">
+            <h3>Generación visual</h3>
+            <p>Producción de todas las imágenes y secuencias de vídeo del cortometraje mediante herramientas de IA. Personajes, escenarios, batallas y planos cinematográficos.</p>
+            <div class="fase-tags">
+              <span>Midjourney</span>
+              <span>DALL·E 3</span>
+              <span>Runway ML</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fase-item reveal">
+          <div class="fase-timeline-left">
+            <span class="fase-num">FASE 3</span>
             <span class="fase-tiempo">Semanas 2–3</span>
           </div>
-          <h3>Investigación y guion</h3>
-          <p>Investigación histórica exhaustiva sobre la Batalla de las Navas de Tolosa. Elaboración del guion literario y técnico del cortometraje con apoyo de IA generativa.</p>
-          <div class="fase-tags">
-            <span>Fuentes históricas</span>
-            <span>Guion literario</span>
-            <span>ChatGPT · Claude</span>
+          <div class="fase-body">
+            <h3>Audio y locución</h3>
+            <p>Síntesis de la voz en off con un perfil épico y dramático. Composición de la banda sonora original. Efectos de sonido ambientales y de batalla.</p>
+            <div class="fase-tags">
+              <span>ElevenLabs</span>
+              <span>Suno AI</span>
+              <span>Postproducción</span>
+            </div>
           </div>
         </div>
 
         <div class="fase-item reveal">
-          <div class="fase-header">
-            <span class="fase-num">FASE 2</span>
-            <span class="fase-tiempo">Semanas 3–5</span>
-          </div>
-          <h3>Generación visual</h3>
-          <p>Producción de todas las imágenes y secuencias de vídeo del cortometraje mediante herramientas de IA. Personajes, escenarios, batallas y planos cinematográficos.</p>
-          <div class="fase-tags">
-            <span>Midjourney</span>
-            <span>DALL·E 3</span>
-            <span>Runway ML</span>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-header">
-            <span class="fase-num">FASE 3</span>
-            <span class="fase-tiempo">Semanas 5–7</span>
-          </div>
-          <h3>Audio y locución</h3>
-          <p>Síntesis de la voz en off con un perfil épico y dramático. Composición de la banda sonora original. Efectos de sonido ambientales y de batalla.</p>
-          <div class="fase-tags">
-            <span>ElevenLabs</span>
-            <span>Suno AI</span>
-            <span>Postproducción</span>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-header">
+          <div class="fase-timeline-left">
             <span class="fase-num">FASE 4</span>
-            <span class="fase-tiempo">Semanas 7–8</span>
+            <span class="fase-tiempo">Semana 3</span>
           </div>
-          <h3>Montaje y entrega</h3>
-          <p>Edición y montaje final del cortometraje. Integración de imagen, audio y subtítulos. Exportación en los formatos acordados. Presentación y validación con el cliente.</p>
-          <div class="fase-tags">
-            <span>Montaje final</span>
-            <span>Subtítulos ES/EN</span>
-            <span>Entrega materiales</span>
+          <div class="fase-body">
+            <h3>Montaje y entrega</h3>
+            <p>Edición y montaje final del cortometraje. Integración de imagen, audio y subtítulos. Exportación en los formatos acordados. Presentación y validación con el cliente.</p>
+            <div class="fase-tags">
+              <span>Montaje final</span>
+              <span>Subtítulos ES/EN</span>
+              <span>Entrega materiales</span>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
   </section>
 
   <!-- ===== 004 · HERRAMIENTAS ===== -->
@@ -445,9 +458,9 @@
         <div class="presup-card reveal">
           <div class="presup-card-header">
             <span>DESGLOSE DE COSTES</span>
-            <span class="presup-ref">PRV-JEN-2025-001</span>
+            <span class="presup-ref">PRV-JEN-2026-001</span>
           </div>
-          <div class="presup-fecha">Fecha: 16 de abril de 2025</div>
+          <div class="presup-fecha">Fecha: Abril 2026</div>
 
           <div class="budget-table">
             <div class="budget-row budget-head">
@@ -580,8 +593,8 @@
             <div class="presup-card-header">CONTRATO DE PRODUCCIÓN AUDIOVISUAL</div>
             <div class="contrato-body">
               <div class="contrato-meta">
-                <span>REF: JEN-2025-001-C</span>
-                <span>16 · 04 · 2025</span>
+                <span>REF: JEN-2026-001-C</span>
+                <span>ABRIL · 2026</span>
               </div>
               <p>Entre el equipo de producción <strong>JEN Estancias</strong> (en adelante <em>el Productor</em>) y el <strong>Museo de la Batalla de las Navas de Tolosa, Diputación de Jaén</strong> (en adelante <em>el Comitente</em>), se establecen los siguientes términos:</p>
               <ul class="contrato-items">
@@ -590,7 +603,7 @@
                 <li>Derechos de uso para proyección, web y difusión no comercial del Museo</li>
                 <li>Hasta 2 rondas de revisión incluidas en el precio</li>
                 <li>Entrega de todos los archivos fuente y materiales generados</li>
-                <li>Plazo de ejecución: 8 semanas desde la aprobación</li>
+                <li>Plazo de ejecución: 3 semanas en abril de 2026</li>
               </ul>
               <div class="contrato-firmas">
                 <div class="firma-bloque">
@@ -681,7 +694,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">JEN · ESTANCIAS 2025</div>
+          <div class="footer-logo">JEN · ESTANCIAS 2026</div>
           <p>Proyecto de estancias en empresa · Tactileventos Digital 3D<br/>Cortometraje histórico sobre la Batalla de las Navas de Tolosa<br/>generado íntegramente con Inteligencia Artificial.</p>
         </div>
         <div class="footer-nav">
@@ -703,7 +716,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2025 JEN Estancias · Ref. JEN-2025-001</span>
+        <span>© 2026 JEN Estancias · Ref. JEN-2026-001</span>
         <span>Producido 100% con IA Generativa</span>
       </div>
     </div>
