@@ -32,13 +32,16 @@
   --r:           3px;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  font-size: 110%; /* Esto hace que 1rem sea un 10% más grande globalmente */
+}
 
 body {
   background: var(--c-bg);
   color: var(--c-text);
   font-family: var(--f-body);
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Aumentado de 1.2rem a 1.4rem */
   line-height: 1.8;
   overflow-x: hidden;
 }
