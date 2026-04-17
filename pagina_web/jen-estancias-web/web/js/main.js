@@ -1,6 +1,6 @@
 /* =============================================
    NAVAS DE TOLOSA 1212 — Main JS
-   JEN Estancias · 2026 Enhanced
+   JEN Estancias · 2026 — Bootstrap Edition
    ============================================= */
 
 /* ---- Navbar scroll ---- */
@@ -9,14 +9,12 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-/* ---- Nav toggle (mobile) ---- */
-document.getElementById('navToggle').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('open');
-});
-
-document.querySelectorAll('.nav-links a').forEach(a => {
+/* ---- Close mobile nav on link click (Bootstrap collapse) ---- */
+document.querySelectorAll('.nav-link-custom').forEach(a => {
   a.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.remove('open');
+    const collapse = document.getElementById('navMenu');
+    const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+    if (bsCollapse) bsCollapse.hide();
   });
 });
 
@@ -28,7 +26,7 @@ const revealObs = new IntersectionObserver((entries) => {
       revealObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
@@ -67,59 +65,57 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     particles.forEach((p, i) => {
       p.life++;
       p.x += p.vx + Math.sin(p.life * 0.04) * 0.3;
       p.y += p.vy;
-
       const t = p.life / p.maxLife;
       const alpha = t < 0.2 ? t / 0.2 : t > 0.75 ? 1 - (t - 0.75) / 0.25 : 1;
-
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size * (1 - t * 0.4), 0, Math.PI * 2);
       ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${alpha * 0.55})`;
       ctx.fill();
-
-      if (p.life >= p.maxLife || p.y < -10) {
-        particles[i] = createParticle();
-      }
+      if (p.life >= p.maxLife || p.y < -10) particles[i] = createParticle();
     });
-
     requestAnimationFrame(draw);
   }
-
   draw();
 })();
 
 /* ---- Gallery ---- */
-const imageFiles = [];
+const imageFiles = [
+  // Añade aquí los nombres de archivo de tus imágenes:
+  // 'escenarios/campamento.png',
+  // 'escenarios/poblado.png',
+];
 
 const grid = document.getElementById('galleryGrid');
 if (grid && imageFiles.length > 0) {
   grid.innerHTML = '';
   imageFiles.forEach(filename => {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.innerHTML = `
-      <img src="recursos_imagenes/${filename}" alt="${filename}" loading="lazy" />
-      <div class="gallery-item-overlay">
-        <span class="gallery-item-label">${filename.replace(/\.[^/.]+$/, '').replace(/_/g, ' ')}</span>
+    const col = document.createElement('div');
+    col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+    col.innerHTML = `
+      <div class="gallery-item">
+        <img src="recursos_imagenes/${filename}" alt="${filename}" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">${filename.replace(/\.[^/.]+$/, '').replace(/_/g, ' ').split('/').pop()}</span>
+        </div>
       </div>
     `;
-    grid.appendChild(item);
+    grid.appendChild(col);
   });
 }
 
-/* ---- Smooth active nav highlight ---- */
+/* ---- Active nav highlight on scroll ---- */
 const sections = document.querySelectorAll('section[id], header[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+const navLinks = document.querySelectorAll('.nav-link-custom');
 
 const activeObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       navLinks.forEach(a => a.style.color = '');
-      const match = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      const match = document.querySelector(`.nav-link-custom[href="#${e.target.id}"]`);
       if (match) match.style.color = 'var(--c-gold-lt)';
     }
   });

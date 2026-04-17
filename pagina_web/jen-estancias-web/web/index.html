@@ -7,721 +7,515 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <nav id="navbar">
-    <div class="nav-brand">
-      <span class="nav-logo">JEN</span>
-      <span class="nav-sep">·</span>
-      <span class="nav-sub">Estancias 2026</span>
+  <!-- NAV -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-3 px-lg-5">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <span class="nav-logo">JEN</span>
+        <span class="nav-sep">·</span>
+        <span class="nav-sub">Estancias 2026</span>
+      </a>
+      <button class="navbar-toggler nav-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menú">
+        <span>&#9776;</span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-lg-4 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link-custom" href="#proyecto">Proyecto</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#propuesta">Propuesta</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#herramientas">Herramientas</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#presupuesto">Presupuesto</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#galeria">Galería</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#equipo">Equipo</a></li>
+        </ul>
+      </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#proyecto">Proyecto</a></li>
-      <li><a href="#propuesta">Propuesta</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#herramientas">Herramientas</a></li>
-      <li><a href="#presupuesto">Presupuesto</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#equipo">Equipo</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <header id="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <canvas id="embers-canvas"></canvas>
-    <div class="hero-line hero-line--top"></div>
-    <div class="hero-line hero-line--bottom"></div>
+    <div class="hero-line hero-line--top d-none d-md-block"></div>
+    <div class="hero-line hero-line--bottom d-none d-md-block"></div>
     <div class="grain"></div>
-    <div class="hero-content">
-      <div class="hero-ref">
-        <span class="tag-line">PROPUESTA TÉCNICA</span>
-        <span class="ref-num">REF · JEN-2026-001</span>
-      </div>
-      <div class="hero-live-badge">PROYECTO EN CURSO · ABRIL 2026</div>
-      <h1 class="hero-title">
-        <span class="title-line-1">Navas de</span>
-        <span class="title-line-2">Tolosa</span>
-        <span class="title-line-3">1212</span>
-      </h1>
-      <p class="hero-desc">
-        Producción de un cortometraje histórico generado íntegramente mediante 
-        Inteligencia Artificial, como recurso audiovisual divulgativo para el 
-        <em>Museo de la Batalla de las Navas de Tolosa</em>
-      </p>
-      <div class="hero-client">
-        <div class="client-tag">CLIENTE</div>
-        <div class="client-info">
-          <strong>Museo de la Batalla de las Navas de Tolosa</strong>
-          <span>Diputación de Jaén · Santa Elena, Jaén</span>
+    <div class="container hero-content-wrap">
+      <div class="hero-content">
+        <div class="hero-ref d-flex flex-wrap align-items-center gap-3 mb-4">
+          <span class="tag-line">PROPUESTA TÉCNICA</span>
+          <span class="ref-num">REF · JEN-2026-001</span>
+        </div>
+        <div class="hero-live-badge mb-4">PROYECTO EN CURSO · ABRIL 2026</div>
+        <h1 class="hero-title mb-4">
+          <span class="title-line-1 d-block">Navas de</span>
+          <span class="title-line-2 d-block">Tolosa</span>
+          <span class="title-line-3 d-block">1212</span>
+        </h1>
+        <p class="hero-desc mb-4">
+          Producción de un cortometraje histórico generado íntegramente mediante 
+          Inteligencia Artificial, como recurso audiovisual divulgativo para el 
+          <em>Museo de la Batalla de las Navas de Tolosa</em>
+        </p>
+        <div class="hero-client mb-4 d-flex align-items-start gap-3">
+          <div class="client-tag flex-shrink-0">CLIENTE</div>
+          <div class="client-info">
+            <strong>Museo de la Batalla de las Navas de Tolosa</strong>
+            <span class="d-block">Diputación de Jaén · Santa Elena, Jaén</span>
+          </div>
+        </div>
+        <div class="hero-cta d-flex flex-wrap gap-3">
+          <a href="#propuesta" class="btn btn-primary-gold">Ver propuesta técnica</a>
+          <a href="#presupuesto" class="btn btn-ghost-gold">Ir al presupuesto</a>
         </div>
       </div>
-      <div class="hero-cta">
-        <a href="#propuesta" class="btn btn-primary">Ver propuesta técnica</a>
-        <a href="#presupuesto" class="btn btn-ghost">Ir al presupuesto</a>
-      </div>
     </div>
-    <div class="hero-scroll">
+    <div class="hero-scroll d-none d-md-flex">
       <span>Desplaza</span>
       <div class="scroll-line"></div>
     </div>
-    <div class="hero-date">ABRIL · 2026</div>
+    <div class="hero-date d-none d-lg-block">ABRIL · 2026</div>
   </header>
 
-  <!-- ===== 001 · EL PROYECTO ===== -->
+  <!-- 001 · EL PROYECTO -->
   <section id="proyecto" class="section">
     <div class="container">
       <div class="section-label">001 — El Proyecto</div>
-      <div class="proyecto-grid">
-        <div class="proyecto-left">
+      <div class="row g-5 align-items-start">
+        <div class="col-12 col-lg-6">
           <h2 class="section-title">Historia épica,<br /><em>creación artificial.</em></h2>
-          <p>El 16 de julio de 1212, en el paso de Despeñaperros, las fuerzas de los reinos cristianos de Castilla, Aragón y Navarra se enfrentaron al ejército almohade del califa Muhammad al-Nasir en uno de los combates más decisivos de la historia de la Península Ibérica.</p>
+          <p>El 16 de julio de 1212, en Sierra Morena, las fuerzas de los reinos cristianos de Castilla, Aragón y Navarra se enfrentaron al ejército almohade del califa Muhammad al-Nasir en uno de los combates más decisivos de la historia de la Península Ibérica.</p>
           <p>El equipo <strong>JEN Estancias</strong> propone al Museo de la Batalla de las Navas de Tolosa la producción de un cortometraje documental-histórico generado íntegramente con Inteligencia Artificial, que sirva como recurso audiovisual permanente del centro.</p>
           <p>El cortometraje combinará precisión histórica, rigor arqueológico y las tecnologías de IA generativa más avanzadas del momento, creando un producto audiovisual de alto valor divulgativo, educativo y patrimonial.</p>
         </div>
-        <div class="proyecto-right">
-          <div class="info-card">
+        <div class="col-12 col-lg-6">
+          <div class="info-card mb-4">
             <div class="info-card-header">FICHA DEL PROYECTO</div>
-            <div class="info-row">
-              <span class="info-key">Ref. Presupuesto</span>
-              <span class="info-val">JEN-2026-001</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Fecha</span>
-              <span class="info-val">Abril 2026</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Cliente</span>
-              <span class="info-val">Museo Navas de Tolosa</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Organismo</span>
-              <span class="info-val">Diputación de Jaén</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Formato</span>
-              <span class="info-val">MP4 · HD 1920×1080</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Duración estimada</span>
-              <span class="info-val">8–12 minutos</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Tecnología</span>
-              <span class="info-val">100% IA Generativa</span>
-            </div>
-            <div class="info-row info-row--highlight">
-              <span class="info-key">Equipo</span>
-              <span class="info-val">3 personas · JEN Estancias</span>
-            </div>
+            <div class="info-row"><span class="info-key">Ref. Presupuesto</span><span class="info-val">JEN-2026-001</span></div>
+            <div class="info-row"><span class="info-key">Fecha</span><span class="info-val">Abril 2026</span></div>
+            <div class="info-row"><span class="info-key">Cliente</span><span class="info-val">Museo Navas de Tolosa</span></div>
+            <div class="info-row"><span class="info-key">Organismo</span><span class="info-val">Diputación de Jaén</span></div>
+            <div class="info-row"><span class="info-key">Formato</span><span class="info-val">MP4 · HD 1280x720</span></div>
+            <div class="info-row"><span class="info-key">Duración estimada</span><span class="info-val">3-6 minutos</span></div>
+            <div class="info-row"><span class="info-key">Tecnología</span><span class="info-val">99% IA Generativa</span></div>
+            <div class="info-row info-row--highlight"><span class="info-key">Equipo</span><span class="info-val">3 personas · JEN Estancias</span></div>
           </div>
-          <div class="stats-row">
-            <div class="stat-mini">
-              <span class="stat-n">1212</span>
-              <span class="stat-l">Año de la batalla</span>
-            </div>
-            <div class="stat-mini">
-              <span class="stat-n">100%</span>
-              <span class="stat-l">IA generativa</span>
-            </div>
-            <div class="stat-mini">
-              <span class="stat-n">+10</span>
-              <span class="stat-l">Herramientas IA</span>
-            </div>
+          <div class="row g-3">
+            <div class="col-4"><div class="stat-mini"><span class="stat-n">1212</span><span class="stat-l">Año de la batalla</span></div></div>
+            <div class="col-4"><div class="stat-mini"><span class="stat-n">99%</span><span class="stat-l">IA generativa</span></div></div>
+            <div class="col-4"><div class="stat-mini"><span class="stat-n">+10</span><span class="stat-l">Herramientas IA</span></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 002 · PROPUESTA TÉCNICA ===== -->
+  <!-- 002 · PROPUESTA TÉCNICA -->
   <section id="propuesta" class="section section-dark">
     <div class="container">
       <div class="section-label">002 — Propuesta Técnica</div>
       <h2 class="section-title">Enfoque general<br /><em>del proyecto.</em></h2>
-
-      <div class="propuesta-intro">
+      <div class="propuesta-intro mb-5">
         <p>La propuesta plantea la producción de un cortometraje audiovisual sobre la Batalla de las Navas de Tolosa, concebido como un recurso multimedia permanente para el Museo, que podrá ser proyectado en sala, embebido en la web del centro o accesible mediante códigos QR integrados en el recorrido físico de la exposición.</p>
       </div>
-
-      <div class="propuesta-bloques">
-
-        <div class="bloque-card reveal">
-          <div class="bloque-num">01</div>
-          <h3>Contenido audiovisual</h3>
-          <p>Producción de un cortometraje de entre 8 y 12 minutos que narra el contexto histórico, el desarrollo de la batalla y su importancia en la historia de España. Guion documentado con fuentes históricas rigurosas.</p>
-          <ul class="bloque-list">
-            <li>Voz en off locutada con IA (ElevenLabs)</li>
-            <li>Imágenes generadas con Midjourney / DALL·E</li>
-            <li>Secuencias de vídeo con Runway ML</li>
-            <li>Banda sonora generada con Suno AI</li>
-          </ul>
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="bloque-card reveal h-100">
+            <div class="bloque-num">01</div>
+            <h3>Contenido audiovisual</h3>
+            <p>Producción de un cortometraje de entre 3 y 6 minutos que narra el contexto histórico, el desarrollo de la batalla y su importancia en la historia de España.</p>
+            <ul class="bloque-list"><li>Imágenes generadas con Gemini Pro</li><li>Secuencias de vídeo con SuperGrok</li><li>Banda sonora generada con Suno AI</li></ul>
+          </div>
         </div>
-
-        <div class="bloque-card reveal">
-          <div class="bloque-num">02</div>
-          <h3>Rigor histórico</h3>
-          <p>Todo el contenido ha sido supervisado con fuentes documentales históricas sobre la batalla, garantizando la precisión en indumentaria, armas, geografía y cronología de los hechos narrados.</p>
-          <ul class="bloque-list">
-            <li>Informe de investigación histórica</li>
-            <li>Consulta de fuentes primarias y secundarias</li>
-            <li>Coherencia con la exposición permanente del Museo</li>
-            <li>Alineado con el discurso museográfico del centro</li>
-          </ul>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="bloque-card reveal h-100">
+            <div class="bloque-num">02</div>
+            <h3>Rigor histórico</h3>
+            <p>Todo el contenido ha sido supervisado con fuentes documentales históricas sobre la batalla, garantizando la precisión en indumentaria, armas, geografía y cronología.</p>
+            <ul class="bloque-list"><li>Informe de investigación histórica</li><li>Consulta de fuentes primarias y secundarias</li><li>Coherencia con la exposición del Museo</li><li>Alineado con el discurso museográfico</li></ul>
+          </div>
         </div>
-
-        <div class="bloque-card reveal">
-          <div class="bloque-num">03</div>
-          <h3>Integración en el Museo</h3>
-          <p>El material producido está pensado para integrarse de forma natural en los espacios y la comunicación del Museo de la Batalla de las Navas de Tolosa.</p>
-          <ul class="bloque-list">
-            <li>Proyección en sala del centro expositivo</li>
-            <li>Versión embebida para la web del Museo</li>
-            <li>Códigos QR para acceso desde el recorrido físico</li>
-            <li>Subtítulos en castellano e inglés</li>
-          </ul>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="bloque-card reveal h-100">
+            <div class="bloque-num">03</div>
+            <h3>Integración en el Museo</h3>
+            <p>El material producido está pensado para integrarse de forma natural en los espacios y la comunicación del Museo.</p>
+            <ul class="bloque-list"><li>Proyección en sala del centro expositivo</li><li>Versión embebida para la web del Museo</li><li>Subtítulos en castellano</li></ul>
+          </div>
         </div>
-
-        <div class="bloque-card reveal">
-          <div class="bloque-num">04</div>
-          <h3>Entregables finales</h3>
-          <p>A la finalización del proyecto se realizará la entrega completa de todos los materiales generados, en formatos abiertos que faciliten la gestión futura por parte del Museo.</p>
-          <ul class="bloque-list">
-            <li>Cortometraje en MP4 HD (1920×1080) y versión web</li>
-            <li>Guion completo del cortometraje</li>
-            <li>Pack de imágenes generadas con IA (alta resolución)</li>
-            <li>Archivos de audio y banda sonora</li>
-            <li>Documentación del proyecto y memoria técnica</li>
-          </ul>
+        <div class="col-12 col-sm-6 col-xl-3">
+          <div class="bloque-card reveal h-100">
+            <div class="bloque-num">04</div>
+            <h3>Entregables finales</h3>
+            <p>A la finalización del proyecto se realizará la entrega completa de todos los materiales generados, en formatos abiertos.</p>
+            <ul class="bloque-list"><li>Cortometraje en MP4 HD y versión web</li><li>Guion completo del cortometraje</li><li>Pack de imágenes generadas con IA</li><li>Archivos de audio y banda sonora</li><li>Documentación y memoria técnica</li></ul>
+          </div>
         </div>
-
       </div>
-
-      <!-- Alineación con objetivos -->
-      <div class="alineacion">
+      <div class="alineacion reveal">
         <div class="alineacion-header">ALINEACIÓN CON LOS OBJETIVOS DEL MUSEO</div>
         <div class="alineacion-tabla">
-          <div class="ali-row ali-head">
-            <span>Objetivo del Museo</span>
-            <span>Solución propuesta</span>
-          </div>
-          <div class="ali-row">
-            <span>Divulgación histórica</span>
-            <span>Cortometraje narrativo con rigor documental</span>
-          </div>
-          <div class="ali-row">
-            <span>Atracción de público joven</span>
-            <span>Formato visual dinámico generado con IA</span>
-          </div>
-          <div class="ali-row">
-            <span>Contenido educativo</span>
-            <span>Guion documentado y subtitulado</span>
-          </div>
-          <div class="ali-row">
-            <span>Innovación tecnológica</span>
-            <span>Producción 100% con IA generativa</span>
-          </div>
-          <div class="ali-row">
-            <span>Accesibilidad digital</span>
-            <span>Web, QR y proyección en sala</span>
-          </div>
+          <div class="ali-row ali-head"><span>Objetivo del Museo</span><span>Solución propuesta</span></div>
+          <div class="ali-row"><span>Divulgación histórica</span><span>Cortometraje narrativo con rigor documental</span></div>
+          <div class="ali-row"><span>Atracción de público joven</span><span>Formato visual dinámico generado con IA</span></div>
+          <div class="ali-row"><span>Contenido educativo</span><span>Guion documentado y subtitulado</span></div>
+          <div class="ali-row"><span>Innovación tecnológica</span><span>Producción 99% con IA generativa</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 003 · FASES / PROCESO ===== -->
-  <section id="proceso" class="section">
-    <div class="container">
-      <div class="section-label">003 — Fases de Ejecución</div>
-      <h2 class="section-title">Metodología<br /><em>de trabajo.</em></h2>
-
-      <div class="fases-timeline">
-
-        <div class="fase-item reveal">
-          <div class="fase-timeline-left">
-            <span class="fase-num">FASE 0</span>
-            <span class="fase-tiempo">Semana 1</span>
-          </div>
-          <div class="fase-body">
-            <h3>Arranque y planificación</h3>
-            <p>Definición del alcance del proyecto, validación del guion con el Museo, aprobación del cronograma y asignación de responsabilidades técnicas dentro del equipo.</p>
-            <div class="fase-tags">
-              <span>Reunión de arranque</span>
-              <span>Cronograma</span>
-              <span>Validación cliente</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-timeline-left">
-            <span class="fase-num">FASE 1</span>
-            <span class="fase-tiempo">Semanas 1–2</span>
-          </div>
-          <div class="fase-body">
-            <h3>Investigación y guion</h3>
-            <p>Investigación histórica exhaustiva sobre la Batalla de las Navas de Tolosa. Elaboración del guion literario y técnico del cortometraje con apoyo de IA generativa.</p>
-            <div class="fase-tags">
-              <span>Fuentes históricas</span>
-              <span>Guion literario</span>
-              <span>ChatGPT · Claude</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-timeline-left">
-            <span class="fase-num">FASE 2</span>
-            <span class="fase-tiempo">Semanas 1–3</span>
-          </div>
-          <div class="fase-body">
-            <h3>Generación visual</h3>
-            <p>Producción de todas las imágenes y secuencias de vídeo del cortometraje mediante herramientas de IA. Personajes, escenarios, batallas y planos cinematográficos.</p>
-            <div class="fase-tags">
-              <span>Midjourney</span>
-              <span>DALL·E 3</span>
-              <span>Runway ML</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-timeline-left">
-            <span class="fase-num">FASE 3</span>
-            <span class="fase-tiempo">Semanas 2–3</span>
-          </div>
-          <div class="fase-body">
-            <h3>Audio y locución</h3>
-            <p>Síntesis de la voz en off con un perfil épico y dramático. Composición de la banda sonora original. Efectos de sonido ambientales y de batalla.</p>
-            <div class="fase-tags">
-              <span>ElevenLabs</span>
-              <span>Suno AI</span>
-              <span>Postproducción</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="fase-item reveal">
-          <div class="fase-timeline-left">
-            <span class="fase-num">FASE 4</span>
-            <span class="fase-tiempo">Semana 3</span>
-          </div>
-          <div class="fase-body">
-            <h3>Montaje y entrega</h3>
-            <p>Edición y montaje final del cortometraje. Integración de imagen, audio y subtítulos. Exportación en los formatos acordados. Presentación y validación con el cliente.</p>
-            <div class="fase-tags">
-              <span>Montaje final</span>
-              <span>Subtítulos ES/EN</span>
-              <span>Entrega materiales</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-  </section>
-
-  <!-- ===== 004 · HERRAMIENTAS ===== -->
+  <!-- 003 · HERRAMIENTAS -->
   <section id="herramientas" class="section section-dark">
     <div class="container">
-      <div class="section-label">004 — Herramientas Empleadas</div>
+      <div class="section-label">003 — Herramientas Empleadas</div>
       <h2 class="section-title">El arsenal<br /><em>tecnológico.</em></h2>
-
-      <div class="tools-cats">
-        <div class="tools-cat reveal">
-          <div class="tools-cat-title">
-            <span class="cat-icon">🎨</span> Imagen
-          </div>
-          <div class="tools-list">
-            <div class="tool-item">
-              <div class="tool-name">Midjourney</div>
-              <div class="tool-desc">Generación de imágenes épicas de la batalla, personajes históricos y escenarios medievales con máxima calidad artística.</div>
-            </div>
-            <div class="tool-item">
-              <div class="tool-name">DALL·E 3</div>
-              <div class="tool-desc">Ilustraciones complementarias, recursos gráficos y variantes de escenas para el cortometraje.</div>
-            </div>
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">🎨</span> Imagen</div>
+            <div class="tool-item"><div class="tool-name">Gemini Pro</div><div class="tool-desc">Generación de imágenes épicas de la batalla, personajes históricos y escenarios medievales con máxima calidad artística, ilustraciones complementarias y variantes de escenas para el cortometraje.</div></div>
           </div>
         </div>
-
-        <div class="tools-cat reveal">
-          <div class="tools-cat-title">
-            <span class="cat-icon">🎬</span> Vídeo
-          </div>
-          <div class="tools-list">
-            <div class="tool-item">
-              <div class="tool-name">Runway ML</div>
-              <div class="tool-desc">Animación de escenas y generación de secuencias de vídeo a partir de imágenes estáticas para dar movimiento al cortometraje.</div>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">🎬</span> Vídeo</div>
+            <div class="tool-item"><div class="tool-name">SuperGrok</div><div class="tool-desc">Animación de escenas y generación de secuencias de vídeo a partir de imágenes estáticas para dar movimiento al cortometraje.</div></div>
           </div>
         </div>
-
-        <div class="tools-cat reveal">
-          <div class="tools-cat-title">
-            <span class="cat-icon">🎙️</span> Audio
-          </div>
-          <div class="tools-list">
-            <div class="tool-item">
-              <div class="tool-name">ElevenLabs</div>
-              <div class="tool-desc">Síntesis de la voz en off con perfil dramático y épico. Accesibilidad y expresividad cinematográfica.</div>
-            </div>
-            <div class="tool-item">
-              <div class="tool-name">Suno AI</div>
-              <div class="tool-desc">Composición de la banda sonora original del cortometraje: música medieval épica generada con IA.</div>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">🎙️</span> Audio</div>
+            <div class="tool-item"><div class="tool-name">SuperGrok</div><div class="tool-desc">Síntesis de la voz en off con perfil dramático y épico. Accesibilidad y expresividad cinematográfica.</div></div>
+            <div class="tool-item mt-3"><div class="tool-name">Suno AI</div><div class="tool-desc">Composición de la banda sonora original del cortometraje: música medieval épica generada con IA.</div></div>
           </div>
         </div>
-
-        <div class="tools-cat reveal">
-          <div class="tools-cat-title">
-            <span class="cat-icon">✍️</span> Guion y texto
-          </div>
-          <div class="tools-list">
-            <div class="tool-item">
-              <div class="tool-name">ChatGPT</div>
-              <div class="tool-desc">Asistencia en la redacción del guion, diálogos, narrativa histórica y estructura dramática del cortometraje.</div>
-            </div>
-            <div class="tool-item">
-              <div class="tool-name">Claude (Anthropic)</div>
-              <div class="tool-desc">Investigación, análisis de fuentes históricas y estructuración del contenido documental del proyecto.</div>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">✍️</span> Guion y texto</div>
+            <div class="tool-item"><div class="tool-name">ChatGPT</div><div class="tool-desc">Asistencia en la redacción del guion, diálogos, narrativa histórica y estructura dramática del cortometraje.</div></div>
+            <div class="tool-item mt-3"><div class="tool-name">Claude (Anthropic)</div><div class="tool-desc">Investigación, análisis de fuentes históricas y estructuración del contenido documental del proyecto.</div></div>
           </div>
         </div>
-
-        <div class="tools-cat reveal">
-          <div class="tools-cat-title">
-            <span class="cat-icon">💻</span> Desarrollo y gestión
-          </div>
-          <div class="tools-list">
-            <div class="tool-item">
-              <div class="tool-name">GitHub</div>
-              <div class="tool-desc">Control de versiones y repositorio del proyecto con toda la documentación, recursos e historial de cambios.</div>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">💻</span> Desarrollo y gestión</div>
+            <div class="tool-item"><div class="tool-name">GitHub</div><div class="tool-desc">Control de versiones y repositorio del proyecto con toda la documentación, recursos e historial de cambios.</div></div>
           </div>
         </div>
-
-      </div>
-
-      <!-- Tabla tecnologías al estilo del doc de Salas -->
-      <div class="tech-tabla">
-        <div class="tech-tabla-header">RESUMEN DE TECNOLOGÍAS EMPLEADAS</div>
-        <div class="tech-row tech-head">
-          <span>Área</span>
-          <span>Tecnología</span>
-        </div>
-        <div class="tech-row">
-          <span>Generación de imagen</span>
-          <span>Midjourney / DALL·E 3</span>
-        </div>
-        <div class="tech-row">
-          <span>Generación de vídeo</span>
-          <span>Runway ML</span>
-        </div>
-        <div class="tech-row">
-          <span>Voz en off</span>
-          <span>ElevenLabs</span>
-        </div>
-        <div class="tech-row">
-          <span>Música / Sonido</span>
-          <span>Suno AI</span>
-        </div>
-        <div class="tech-row">
-          <span>Guion asistido</span>
-          <span>ChatGPT / Claude</span>
-        </div>
-        <div class="tech-row">
-          <span>Control de versiones</span>
-          <span>GitHub</span>
-        </div>
-        <div class="tech-row">
-          <span>Presentación web</span>
-          <span>HTML5 / CSS3 / JS Vanilla</span>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="tools-cat reveal h-100">
+            <div class="tools-cat-title"><span class="cat-icon">💬</span> Presentación web</div>
+            <div class="tool-item"><div class="tool-name">HTML5 / CSS3 / Bootstrap 5</div><div class="tool-desc">Desarrollo de la web de propuesta técnica: estructura semántica, diseño responsivo y presentación profesional del proyecto al cliente.</div></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 005 · PRESUPUESTO ===== -->
+  <!-- 004 · PRESUPUESTO -->
   <section id="presupuesto" class="section">
     <div class="container">
-      <div class="section-label">005 — Propuesta Económica</div>
+      <div class="section-label">004 — Propuesta Económica</div>
       <h2 class="section-title">Presupuesto<br /><em>de producción.</em></h2>
-
-      <div class="presupuesto-grid">
-
-        <!-- Desglose -->
-        <div class="presup-card reveal">
-          <div class="presup-card-header">
-            <span>DESGLOSE DE COSTES</span>
-            <span class="presup-ref">PRV-JEN-2026-001</span>
-          </div>
-          <div class="presup-fecha">Fecha: Abril 2026</div>
-
-          <div class="budget-table">
-            <div class="budget-row budget-head">
-              <span>Concepto</span>
-              <span>Cantidad</span>
-              <span>Coste</span>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <div class="presup-card reveal">
+            <div class="presup-card-header d-flex justify-content-between flex-wrap gap-2">
+              <span>DESGLOSE DE COSTES</span>
+              <span class="presup-ref">PRV-JEN-2026-001</span>
             </div>
-            <div class="budget-row">
-              <span>Investigación histórica y documentación</span>
-              <span>1</span>
-              <span>0,00 €</span>
+            <div class="presup-fecha">Fecha: Abril 2026</div>
+            <div class="budget-table">
+              <div class="budget-row budget-head"><span>Concepto</span><span>Cant.</span><span>Coste</span></div>
+              <div class="budget-row"><span>Investigación histórica y documentación</span><span>1</span><span>0,00 €</span></div>
+              <div class="budget-row"><span>Redacción y desarrollo del guion (asistido IA)</span><span>1</span><span>80,00 €</span></div>
+              <div class="budget-row"><span>Licencia Midjourney Pro (generación imágenes)</span><span>1 mes</span><span>96,00 €</span></div>
+              <div class="budget-row"><span>Créditos DALL·E 3 / OpenAI API</span><span>—</span><span>30,00 €</span></div>
+              <div class="budget-row"><span>Runway ML (generación vídeo)</span><span>1 mes</span><span>95,00 €</span></div>
+              <div class="budget-row"><span>ElevenLabs (síntesis de voz)</span><span>1 mes</span><span>22,00 €</span></div>
+              <div class="budget-row"><span>Suno AI (música generada)</span><span>1 mes</span><span>8,00 €</span></div>
+              <div class="budget-row"><span>Montaje y postproducción audiovisual</span><span>1</span><span>120,00 €</span></div>
+              <div class="budget-row"><span>Diseño web de la propuesta</span><span>1</span><span>80,00 €</span></div>
+              <div class="budget-row"><span>Horas de producción equipo (3 personas)</span><span>—</span><span>369,00 €</span></div>
+              <div class="budget-row budget-subtotal"><span>Base imponible</span><span></span><span>900,00 €</span></div>
+              <div class="budget-row budget-iva"><span>IVA 21%</span><span></span><span>189,00 €</span></div>
+              <div class="budget-row budget-total"><span>TOTAL IMPUESTOS INCLUIDOS</span><span></span><span>1.089,00 €</span></div>
             </div>
-            <div class="budget-row">
-              <span>Redacción y desarrollo del guion (asistido IA)</span>
-              <span>1</span>
-              <span>80,00 €</span>
+            <div class="presup-footer">
+              <p>Este importe incluye la totalidad de los trabajos descritos: investigación histórica, guion, generación de imágenes y vídeo con IA, síntesis de voz, composición musical, montaje del cortometraje, subtítulos y entrega de todos los materiales en formatos abiertos.</p>
             </div>
-            <div class="budget-row">
-              <span>Licencia Midjourney Pro (generación imágenes)</span>
-              <span>1 mes</span>
-              <span>96,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Créditos DALL·E 3 / OpenAI API</span>
-              <span>—</span>
-              <span>30,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Runway ML (generación vídeo)</span>
-              <span>1 mes</span>
-              <span>95,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>ElevenLabs (síntesis de voz)</span>
-              <span>1 mes</span>
-              <span>22,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Suno AI (música generada)</span>
-              <span>1 mes</span>
-              <span>8,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Montaje y postproducción audiovisual</span>
-              <span>1</span>
-              <span>120,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Diseño web de la propuesta</span>
-              <span>1</span>
-              <span>80,00 €</span>
-            </div>
-            <div class="budget-row">
-              <span>Horas de producción equipo (3 personas)</span>
-              <span>—</span>
-              <span>369,00 €</span>
-            </div>
-            <div class="budget-row budget-subtotal">
-              <span>Base imponible</span>
-              <span></span>
-              <span>900,00 €</span>
-            </div>
-            <div class="budget-row budget-iva">
-              <span>IVA 21%</span>
-              <span></span>
-              <span>189,00 €</span>
-            </div>
-            <div class="budget-row budget-total">
-              <span>TOTAL IMPUESTOS INCLUIDOS</span>
-              <span></span>
-              <span>1.089,00 €</span>
-            </div>
-          </div>
-
-          <div class="presup-footer">
-            <p>Este importe incluye la totalidad de los trabajos descritos: investigación histórica, guion, generación de imágenes y vídeo con IA, síntesis de voz, composición musical, montaje del cortometraje, subtítulos y entrega de todos los materiales en formatos abiertos.</p>
           </div>
         </div>
-
-        <!-- Documentos -->
-        <div class="presup-docs reveal">
-          <div class="presup-card presup-card--sm">
-            <div class="presup-card-header">DOCUMENTACIÓN DEL PROYECTO</div>
-            <div class="docs-list">
-              <a href="https://github.com/horseantonio84/jen-estancias/blob/main/Informe%20De%20Investigaci%C3%B3n.pdf" target="_blank" class="doc-item">
-                <div class="doc-icon">📋</div>
-                <div class="doc-info">
-                  <span class="doc-name">Informe de Investigación</span>
-                  <span class="doc-meta">PDF · Repositorio GitHub</span>
-                </div>
-                <span class="doc-arrow">↗</span>
-              </a>
-              <a href="https://github.com/horseantonio84/jen-estancias/blob/main/Informe%20Lluvia%20de%20Ideas.pdf" target="_blank" class="doc-item">
-                <div class="doc-icon">💡</div>
-                <div class="doc-info">
-                  <span class="doc-name">Informe Lluvia de Ideas</span>
-                  <span class="doc-meta">PDF · Repositorio GitHub</span>
-                </div>
-                <span class="doc-arrow">↗</span>
-              </a>
-              <a href="https://github.com/horseantonio84/jen-estancias/tree/main/guion" target="_blank" class="doc-item">
-                <div class="doc-icon">🎬</div>
-                <div class="doc-info">
-                  <span class="doc-name">Guion del Cortometraje</span>
-                  <span class="doc-meta">Carpeta /guion · GitHub</span>
-                </div>
-                <span class="doc-arrow">↗</span>
-              </a>
-              <a href="https://github.com/horseantonio84/jen-estancias/tree/main/recursos_imagenes" target="_blank" class="doc-item">
-                <div class="doc-icon">🖼️</div>
-                <div class="doc-info">
-                  <span class="doc-name">Recursos visuales (IA)</span>
-                  <span class="doc-meta">Carpeta /recursos_imagenes</span>
-                </div>
-                <span class="doc-arrow">↗</span>
-              </a>
-              <a href="https://github.com/horseantonio84/jen-estancias/tree/main/registro_asistencia" target="_blank" class="doc-item">
-                <div class="doc-icon">📅</div>
-                <div class="doc-info">
-                  <span class="doc-name">Registro de Asistencia</span>
-                  <span class="doc-meta">Carpeta /registro_asistencia</span>
-                </div>
-                <span class="doc-arrow">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Contrato simulado -->
-          <div class="presup-card presup-card--sm">
-            <div class="presup-card-header">CONTRATO DE PRODUCCIÓN AUDIOVISUAL</div>
-            <div class="contrato-body">
-              <div class="contrato-meta">
-                <span>REF: JEN-2026-001-C</span>
-                <span>ABRIL · 2026</span>
+        <div class="col-12 col-lg-5">
+          <div class="d-flex flex-column gap-4">
+            <div class="presup-card reveal">
+              <div class="presup-card-header">DOCUMENTACIÓN DEL PROYECTO</div>
+              <div class="docs-list">
+                <a href="https://github.com/horseantonio84/jen-estancias/blob/main/Informe%20De%20Investigaci%C3%B3n.pdf" target="_blank" class="doc-item"><div class="doc-icon">📋</div><div class="doc-info"><span class="doc-name">Informe de Investigación</span><span class="doc-meta">PDF · Repositorio GitHub</span></div><span class="doc-arrow">↗</span></a>
+                <a href="https://github.com/horseantonio84/jen-estancias/blob/main/Informe%20Lluvia%20de%20Ideas.pdf" target="_blank" class="doc-item"><div class="doc-icon">💡</div><div class="doc-info"><span class="doc-name">Informe Lluvia de Ideas</span><span class="doc-meta">PDF · Repositorio GitHub</span></div><span class="doc-arrow">↗</span></a>
+                <a href="https://github.com/horseantonio84/jen-estancias/tree/main/guion" target="_blank" class="doc-item"><div class="doc-icon">🎬</div><div class="doc-info"><span class="doc-name">Guion del Cortometraje</span><span class="doc-meta">Carpeta /guion · GitHub</span></div><span class="doc-arrow">↗</span></a>
+                <a href="https://github.com/horseantonio84/jen-estancias/tree/main/recursos_imagenes" target="_blank" class="doc-item"><div class="doc-icon">🖼️</div><div class="doc-info"><span class="doc-name">Recursos visuales (IA)</span><span class="doc-meta">Carpeta /recursos_imagenes</span></div><span class="doc-arrow">↗</span></a>
+                <a href="https://github.com/horseantonio84/jen-estancias/tree/main/registro_asistencia" target="_blank" class="doc-item"><div class="doc-icon">📅</div><div class="doc-info"><span class="doc-name">Registro de Asistencia</span><span class="doc-meta">Carpeta /registro_asistencia</span></div><span class="doc-arrow">↗</span></a>
               </div>
-              <p>Entre el equipo de producción <strong>JEN Estancias</strong> (en adelante <em>el Productor</em>) y el <strong>Museo de la Batalla de las Navas de Tolosa, Diputación de Jaén</strong> (en adelante <em>el Comitente</em>), se establecen los siguientes términos:</p>
-              <ul class="contrato-items">
-                <li>Entrega del cortometraje en formato MP4 HD (1920×1080) y versión web optimizada</li>
-                <li>Subtítulos en castellano e inglés incluidos</li>
-                <li>Derechos de uso para proyección, web y difusión no comercial del Museo</li>
-                <li>Hasta 2 rondas de revisión incluidas en el precio</li>
-                <li>Entrega de todos los archivos fuente y materiales generados</li>
-                <li>Plazo de ejecución: 3 semanas en abril de 2026</li>
-              </ul>
-              <div class="contrato-firmas">
-                <div class="firma-bloque">
-                  <div class="firma-linea"></div>
-                  <span>JEN Estancias · El Productor</span>
-                </div>
-                <div class="firma-bloque">
-                  <div class="firma-linea"></div>
-                  <span>Museo Navas de Tolosa · El Comitente</span>
+            </div>
+            <div class="presup-card reveal">
+              <div class="presup-card-header">CONTRATO DE PRODUCCIÓN AUDIOVISUAL</div>
+              <div class="contrato-body">
+                <div class="contrato-meta d-flex justify-content-between flex-wrap gap-2 mb-3"><span>REF: JEN-2026-001-C</span><span>ABRIL · 2026</span></div>
+                <p>Entre el equipo de producción <strong>JEN Estancias</strong> (<em>el Productor</em>) y el <strong>Museo de la Batalla de las Navas de Tolosa, Diputación de Jaén</strong> (<em>el Comitente</em>), se establecen los siguientes términos:</p>
+                <ul class="contrato-items">
+                  <li>Entrega del cortometraje en formato MP4 HD (1920×1080) y versión web optimizada</li>
+                  <li>Subtítulos en castellano e inglés incluidos</li>
+                  <li>Derechos de uso para proyección, web y difusión no comercial del Museo</li>
+                  <li>Hasta 2 rondas de revisión incluidas en el precio</li>
+                  <li>Entrega de todos los archivos fuente y materiales generados</li>
+                  <li>Plazo de ejecución: 3 semanas en abril de 2026</li>
+                </ul>
+                <div class="contrato-firmas d-flex gap-4 flex-wrap">
+                  <div class="firma-bloque flex-fill"><div class="firma-linea"></div><span>JEN Estancias · El Productor</span></div>
+                  <div class="firma-bloque flex-fill"><div class="firma-linea"></div><span>Museo Navas de Tolosa · El Comitente</span></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ===== 006 · GALERÍA ===== -->
+  <!-- 005 · GALERÍA -->
   <section id="galeria" class="section section-dark">
     <div class="container">
-      <div class="section-label">006 — Galería</div>
+      <div class="section-label">005 — Galería</div>
       <h2 class="section-title">Imágenes generadas<br /><em>con Inteligencia Artificial.</em></h2>
-      <p class="section-desc">Recursos visuales producidos para el cortometraje mediante herramientas de IA generativa.</p>
-      <div class="gallery-grid" id="galleryGrid">
-        <div class="gallery-placeholder">
-          <span>📁</span>
-          <p>Añade tus imágenes a <code>recursos_imagenes/</code><br/>y actualiza el array <code>imageFiles</code> en <code>js/main.js</code></p>
+      <p class="section-desc">Recursos visuales producidos para el cortometraje mediante herramientas de IA generativa. Organizado por categorías: escenarios, personajes y objetos históricos.</p>
+
+      <!-- Tabs de categoría -->
+      <ul class="nav gallery-tabs mb-0" id="galleryTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="gallery-tab-btn active" id="tab-escenarios" data-bs-toggle="pill" data-bs-target="#pane-escenarios" type="button" role="tab" aria-controls="pane-escenarios" aria-selected="true">🏔️ Escenarios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="gallery-tab-btn" id="tab-personajes" data-bs-toggle="pill" data-bs-target="#pane-personajes" type="button" role="tab" aria-controls="pane-personajes" aria-selected="false">⚔️ Personajes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="gallery-tab-btn" id="tab-objetos" data-bs-toggle="pill" data-bs-target="#pane-objetos" type="button" role="tab" aria-controls="pane-objetos" aria-selected="false">🗡️ Objetos</button>
+        </li>
+      </ul>
+
+      <div class="tab-content gallery-tab-content" id="galleryTabContent">
+
+        <!-- ESCENARIOS -->
+        <div class="tab-pane fade show active" id="pane-escenarios" role="tabpanel" aria-labelledby="tab-escenarios">
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="gallery-item gallery-item--landscape">
+                <img src="recursos_imagenes/escenarios/campamento.png" alt="Campamento" loading="lazy" />
+                <div class="gallery-item-overlay"><span class="gallery-item-label">Campamento</span></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="gallery-item gallery-item--landscape">
+                <img src="recursos_imagenes/escenarios/interiorCasa.png" alt="Interior de Casa" loading="lazy" />
+                <div class="gallery-item-overlay"><span class="gallery-item-label">Interior de Casa</span></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="gallery-item gallery-item--landscape">
+                <img src="recursos_imagenes/escenarios/poblado.png" alt="Poblado Medieval" loading="lazy" />
+                <div class="gallery-item-overlay"><span class="gallery-item-label">Poblado Medieval</span></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6">
+              <div class="gallery-item gallery-item--landscape">
+                <img src="recursos_imagenes/escenarios/sierraMorena.png" alt="Sierra Morena" loading="lazy" />
+                <div class="gallery-item-overlay"><span class="gallery-item-label">Sierra Morena</span></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6">
+              <div class="gallery-item gallery-item--landscape">
+                <img src="recursos_imagenes/escenarios/zonademando.png" alt="Zona de Mando" loading="lazy" />
+                <div class="gallery-item-overlay"><span class="gallery-item-label">Zona de Mando</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <!-- PERSONAJES (todos juntos, desplegados verticalmente) -->
+        <div class="tab-pane fade" id="pane-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+
+          <!-- ALFONSO VIII -->
+          <div class="personaje-bloque">
+            <div class="personaje-bloque-header">
+              <div class="personaje-bloque-icon">👑</div>
+              <div>
+                <h3 class="personaje-bloque-nombre">Alfonso VIII <em>— Rey de Castilla</em></h3>
+                <p class="personaje-bloque-desc">Personaje principal. Generado con IA a partir de documentación histórica sobre indumentaria, armas y rasgos físicos del rey castellano en la Batalla de las Navas de Tolosa (1212).</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoFrontalCuerpo.png" alt="Alfonso VIII — Cuerpo Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoFrontalCara.png" alt="Alfonso VIII — Cara Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoDerechoCuerpo.png" alt="Alfonso VIII — Cuerpo Derecho" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Derecho</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoDerechoCara.png" alt="Alfonso VIII — Cara Derecha" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Derecha</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoIzquierdoCuerpo.png" alt="Alfonso VIII — Cuerpo Izquierdo" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Izquierdo</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoIzquierdoCara.png" alt="Alfonso VIII — Cara Izquierda" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Izquierda</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Alfonso_VIII/PlanoTrasero.png" alt="Alfonso VIII — Vista Trasera" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Vista Trasera</span></div></div></div>
+            </div>
+          </div>
+
+          <!-- ESTEBAN -->
+          <div class="personaje-bloque">
+            <div class="personaje-bloque-header">
+              <div class="personaje-bloque-icon">⚔️</div>
+              <div>
+                <h3 class="personaje-bloque-nombre">Esteban <em>— Soldado 1</em></h3>
+                <p class="personaje-bloque-desc">Soldado cristiano de la hueste castellana. Modelado con IA con rigor histórico en armamento e indumentaria medieval.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PlanoCuerpoEnteroSoldado1.png" alt="Esteban — Cuerpo Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PrimerPlanoCaraSoldado1.png" alt="Esteban — Cara Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PlanoCuerpoEnteroLadoDerechoSoldado1.png" alt="Esteban — Cuerpo Derecho" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Derecho</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PrimerPlanoCaraDerechoSoldado1.png" alt="Esteban — Cara Derecha" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Derecha</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PlanoCuerpoEnteroLadoIzquierdoSoldado1.png" alt="Esteban — Cuerpo Izquierdo" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Izquierdo</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PrimerPlanoCaraIzquierdoSoldado1.png" alt="Esteban — Cara Izquierda" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Izquierda</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Esteban_soldado1/PlanoEspaldaSoldado1.png" alt="Esteban — Vista Trasera" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Vista Trasera</span></div></div></div>
+            </div>
+          </div>
+
+          <!-- BAUTISTA -->
+          <div class="personaje-bloque">
+            <div class="personaje-bloque-header">
+              <div class="personaje-bloque-icon">🛡️</div>
+              <div>
+                <h3 class="personaje-bloque-nombre">Bautista <em>— Soldado 2</em></h3>
+                <p class="personaje-bloque-desc">Segundo soldado cristiano del contingente castellano. Diseño complementario al de Esteban con variantes de plano y perspectiva.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoFrontalSoldado.png" alt="Bautista — Cuerpo Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PrimerPlanoCaraSoldado.png" alt="Bautista — Primer Plano" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Primer Plano Cara</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoDerechoCuerpoSoldado.png" alt="Bautista — Cuerpo Derecho" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Derecho</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoCaraDerechoSoldado.png" alt="Bautista — Cara Derecha" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Derecha</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoIzqierdoCuerpoSoldado.png" alt="Bautista — Cuerpo Izquierdo" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Izquierdo</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoCaraIzquierdoSoldado.png" alt="Bautista — Cara Izquierda" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Izquierda</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Bautista_soldado2/PlanoAtrasSoldadoCuerpoEntero.png" alt="Bautista — Vista Trasera" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Vista Trasera</span></div></div></div>
+            </div>
+          </div>
+
+          <!-- FERNANDO -->
+          <div class="personaje-bloque">
+            <div class="personaje-bloque-header">
+              <div class="personaje-bloque-icon">👦</div>
+              <div>
+                <h3 class="personaje-bloque-nombre">Fernando <em>— El Niño</em></h3>
+                <p class="personaje-bloque-desc">Personaje secundario. Hijo del protagonista, representa la esperanza y la continuidad del pueblo castellano ante la Reconquista.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/planoCuerpoDeFrenteNi%C3%B1o.png" alt="Fernando — Cuerpo Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/primerPlanoCaraNi%C3%B1o.png" alt="Fernando — Cara Frontal" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Frontal</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/planoCuerpoEnteroDerechaNi%C3%B1o.png" alt="Fernando — Cuerpo Derecho" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Derecho</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/primerPlanoCaraLadoDerechoNi%C3%B1o.png" alt="Fernando — Cara Derecha" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Derecha</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/planoCuerpoIzquierdoNi%C3%B1o.png" alt="Fernando — Cuerpo Izquierdo" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cuerpo — Izquierdo</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/PrimerPlanoCaraLadoIzquierdoNi%C3%B1o.png" alt="Fernando — Cara Izquierda" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Cara — Izquierda</span></div></div></div>
+              <div class="col-6 col-sm-4 col-md-3"><div class="gallery-item gallery-item--portrait"><img src="recursos_imagenes/personajes/Fernando_hijo/planoDesdeAtrasCuerpoEnteroNi%C3%B1o.png" alt="Fernando — Vista Trasera" loading="lazy" /><div class="gallery-item-overlay"><span class="gallery-item-label">Vista Trasera</span></div></div></div>
+            </div>
+          </div>
+
+        </div><!-- /pane-personajes -->
+
+        <!-- OBJETOS -->
+        <div class="tab-pane fade" id="pane-objetos" role="tabpanel" aria-labelledby="tab-objetos">
+          <div class="personaje-bloque">
+            <div class="personaje-bloque-header">
+              <div class="personaje-bloque-icon">🗡️</div>
+              <div>
+                <h3 class="personaje-bloque-nombre">Objetos <em>— Props del Cortometraje</em></h3>
+                <p class="personaje-bloque-desc">Objetos históricos generados con IA para enriquecer la ambientación del cortometraje. Materiales de época con detalle arqueológico.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="gallery-item gallery-item--landscape">
+                  <img src="recursos_imagenes/objetos/pa%C3%B1ueloDeLinoPF.png" alt="Pañuelo de Lino" loading="lazy" />
+                  <div class="gallery-item-overlay"><span class="gallery-item-label">Pañuelo de Lino</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /tab-content -->
     </div>
   </section>
 
-  <!-- ===== 007 · EQUIPO ===== -->
+  <!-- 006 · EQUIPO -->
   <section id="equipo" class="section">
     <div class="container">
-      <div class="section-label">007 — Equipo Profesional</div>
+      <div class="section-label">006 — Equipo Profesional</div>
       <h2 class="section-title">Equipo<br /><em>asignado.</em></h2>
-      <div class="team-grid">
-
-        <div class="team-card reveal">
-          <div class="team-avatar">JA</div>
-          <div class="team-info">
-            <h3>Jose Antonio Fernández Iglesias</h3>
-            <p class="team-role">Director de Proyecto & Producción</p>
-            <p class="team-desc">Responsable de la dirección general del proyecto, coordinación del equipo, gestión del repositorio GitHub y supervisión de la entrega final al cliente.</p>
+      <div class="row g-4 mb-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="team-card reveal h-100">
+            <div class="team-avatar flex-shrink-0">JA</div>
+            <div class="team-info"><h3>Jose Antonio Fernández Iglesias</h3><p class="team-role">Director de Proyecto & Producción</p><p class="team-desc">Responsable de la dirección general del proyecto, coordinación del equipo, gestión del repositorio GitHub y supervisión de la entrega final al cliente.</p></div>
           </div>
         </div>
-
-        <div class="team-card reveal">
-          <div class="team-avatar">ER</div>
-          <div class="team-info">
-            <h3>Elisabeth Ruffolo García</h3>
-            <p class="team-role">Guion & Investigación Histórica</p>
-            <p class="team-desc">A cargo de la investigación histórica, redacción del guion literario y técnico, documentación del proceso y coordinación con el contenido del Museo.</p>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="team-card reveal h-100">
+            <div class="team-avatar flex-shrink-0">ER</div>
+            <div class="team-info"><h3>Elisabeth Ruffolo García</h3><p class="team-role">Guion e Investigación Histórica</p><p class="team-desc">A cargo de la investigación histórica, redacción del guion literario y técnico, documentación del proceso y coordinación con el contenido del Museo.</p></div>
           </div>
         </div>
-
-        <div class="team-card reveal">
-          <div class="team-avatar">NF</div>
-          <div class="team-info">
-            <h3>Néstor Fernández García</h3>
-            <p class="team-role">Generación Visual & Postproducción</p>
-            <p class="team-desc">Responsable de la generación de imágenes y vídeo con IA, síntesis de audio, montaje del cortometraje y entrega de materiales finales.</p>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="team-card reveal h-100">
+            <div class="team-avatar flex-shrink-0">NF</div>
+            <div class="team-info"><h3>Néstor Fernández García</h3><p class="team-role">Generación Visual & Postproducción</p><p class="team-desc">Responsable de la generación de imágenes y vídeo con IA, síntesis de audio, montaje del cortometraje y entrega de materiales finales.</p></div>
           </div>
-        </div>
-
-      </div>
-
-      <!-- Empresa de estancias -->
-      <div class="empresa-card reveal">
-        <div class="empresa-logo">
-          <span>TACTILEVENTOS</span>
-          <span class="empresa-sub">Digital 3D</span>
-        </div>
-        <div class="empresa-info">
-          <p><strong>Empresa de prácticas:</strong> Tactileventos Digital 3D</p>
-          <p>C/ Alfonso El Sabio 3 · 33429 La Fresneda (Siero) · Principado de Asturias</p>
-          <p>Especialistas en digitalización del patrimonio histórico · Gemelos Digitales · VR/AR</p>
         </div>
       </div>
-    </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer id="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">JEN · ESTANCIAS 2026</div>
-          <p>Proyecto de estancias en empresa · Tactileventos Digital 3D<br/>Cortometraje histórico sobre la Batalla de las Navas de Tolosa<br/>generado íntegramente con Inteligencia Artificial.</p>
+      <div class="row g-4 mb-4 pb-4 footer-grid-border">
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="footer-logo mb-3">JEN · ESTANCIAS 2026</div>
+          <p class="footer-brand-text">Proyecto de estancias en empresa<br/>Cortometraje histórico sobre la Batalla de las Navas de Tolosa<br/>generado íntegramente con Inteligencia Artificial.</p>
         </div>
-        <div class="footer-nav">
-          <h4>Secciones</h4>
-          <a href="#proyecto">El Proyecto</a>
-          <a href="#propuesta">Propuesta Técnica</a>
-          <a href="#proceso">Fases de Ejecución</a>
-          <a href="#herramientas">Herramientas</a>
-          <a href="#presupuesto">Presupuesto</a>
-          <a href="#equipo">Equipo</a>
+        <div class="col-6 col-lg-3 offset-lg-1">
+          <h4 class="footer-heading">Secciones</h4>
+          <nav class="d-flex flex-column gap-2">
+            <a href="#proyecto" class="footer-link">El Proyecto</a>
+            <a href="#propuesta" class="footer-link">Propuesta Técnica</a>
+            <a href="#herramientas" class="footer-link">Herramientas</a>
+            <a href="#presupuesto" class="footer-link">Presupuesto</a>
+            <a href="#equipo" class="footer-link">Equipo</a>
+          </nav>
         </div>
-        <div class="footer-repo">
-          <h4>Repositorio</h4>
-          <a href="https://github.com/horseantonio84/jen-estancias" target="_blank" rel="noopener">
-            ↗ GitHub · jen-estancias
-          </a>
+        <div class="col-6 col-lg-3">
+          <h4 class="footer-heading">Repositorio</h4>
+          <a href="https://github.com/horseantonio84/jen-estancias" target="_blank" rel="noopener" class="footer-link d-block mb-2">↗ GitHub · jen-estancias</a>
           <p class="footer-equipo">Jose Antonio · Elisabeth · Néstor</p>
           <p class="footer-cliente">Cliente: Museo de la Batalla de<br/>las Navas de Tolosa · Jaén</p>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
         <span>© 2026 JEN Estancias · Ref. JEN-2026-001</span>
         <span>Producido 100% con IA Generativa</span>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
