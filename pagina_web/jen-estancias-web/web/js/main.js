@@ -72,8 +72,8 @@ const activeObs = new IntersectionObserver((entries) => {
     // Marcar enlace activo con aria-current
     const match = document.querySelector(`.nav-link-custom[href="#${e.target.id}"]`);
     if (match) {
-      match.setAttribute('aria-current', 'true');
-      // El color lo gestiona CSS con el selector [aria-current="true"]
+      match.setAttribute('aria-current', 'page');
+      // El color lo gestiona CSS con el selector [aria-current="page"]
     }
   });
 }, { threshold: 0.3 });
