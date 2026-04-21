@@ -22,7 +22,12 @@
   --c-red:       #2a2400;
   --c-text:      #f5f0e0;
   --c-muted:     #c8b870;
-  --c-muted2:    #7a6e38;
+  /*
+    --c-muted2 original (#7a6e38) tenía ratio ~3.97:1 sobre --c-bg,
+    insuficiente para texto normal (WCAG AA requiere 4.5:1).
+    Nuevo valor (#988840): ratio ~6.2:1 — supera WCAG AA y mantiene la paleta dorada.
+  */
+  --c-muted2:    #988840;
   --c-white:     #ffffff;
   --f-display:   'Cinzel', Georgia, serif;
   --f-body:      'Crimson Pro', Georgia, serif;
@@ -30,6 +35,9 @@
   --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --r:           4px;
+  /* Radio del anillo de foco: consistente en toda la página */
+  --focus-ring:  2px solid var(--c-gold);
+  --focus-offset: 3px;
 }
 
 html { scroll-behavior: smooth; font-size: 110%; }
@@ -62,6 +70,59 @@ p { margin-bottom: 1rem; }
 ::-webkit-scrollbar-track { background: var(--c-bg); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--c-gold), var(--c-gold-dk)); border-radius: 2px; }
 ::selection { background: var(--c-gold); color: var(--c-bg); }
+
+/* ============================================
+   FOCO VISIBLE — WCAG 2.4.7 (Nivel AA)
+   Regla global: todos los elementos interactivos
+   muestran un anillo dorado al recibir foco por teclado.
+   :focus-visible evita que se muestre con el ratón.
+   ============================================ */
+:focus { outline: none; }
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--r);
+}
+
+/* Foco en enlaces dentro del cuerpo del texto */
+a:focus-visible,
+button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--r);
+}
+
+/* ============================================
+   SKIP LINK — WCAG 2.4.1 (Nivel A)
+   Oculto visualmente hasta recibir foco.
+   Permite a usuarios de teclado saltar la navegación.
+   ============================================ */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 99999;
+  background: var(--c-gold);
+  color: var(--c-bg);
+  padding: 0.6rem 1.25rem;
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: top 0.2s var(--ease);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Al recibir foco, entra en pantalla */
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--c-bg);
+  outline-offset: 2px;
+}
 
 /* ============================================
    GRAIN overlay
@@ -125,7 +186,10 @@ p { margin-bottom: 1rem; }
   border-radius: 2px;
   line-height: 1;
 }
-.nav-toggler-custom:focus { box-shadow: none; outline: none; }
+/*
+  El outline se controla con :focus-visible (ver arriba).
+  Ya no se elimina el foco con outline: none.
+*/
 
 .nav-link-custom {
   font-family: var(--f-display);
@@ -149,6 +213,12 @@ p { margin-bottom: 1rem; }
 
 .nav-link-custom:hover { color: var(--c-gold-lt); }
 .nav-link-custom:hover::after { width: 100%; }
+
+/* Enlace activo (gestionado por JS con aria-current) */
+.nav-link-custom[aria-current="true"] {
+  color: var(--c-gold-lt);
+}
+.nav-link-custom[aria-current="true"]::after { width: 100%; }
 
 @media (max-width: 991px) {
   .navbar-collapse {
@@ -371,6 +441,15 @@ p { margin-bottom: 1rem; }
   border-bottom: 1px solid var(--c-border);
 }
 
+/*
+  <dl> semántico para la ficha del proyecto.
+  El wrapper <div> dentro de <dl> es HTML válido (permite agrupar dt+dd).
+*/
+.info-dl {
+  margin: 0;
+  padding: 0;
+}
+
 .info-row {
   display: flex;
   justify-content: space-between;
@@ -387,17 +466,23 @@ p { margin-bottom: 1rem; }
   border-top: 1px solid rgba(240,192,64,0.3);
 }
 
+/* dt: término / clave */
 .info-key {
   font-family: var(--f-mono);
   font-size: 0.92rem; letter-spacing: 0.08em;
   color: var(--c-muted);
+  /* Reset de estilos de <dt> */
+  font-weight: normal;
 }
 
+/* dd: valor */
 .info-val {
   font-family: var(--f-display);
   font-size: 1rem; letter-spacing: 0.04em;
   color: var(--c-white);
   text-align: right;
+  /* Reset de margen de <dd> */
+  margin-inline-start: 0;
 }
 
 .stat-mini {
@@ -506,6 +591,9 @@ p { margin-bottom: 1rem; }
   font-size: 0.7rem;
 }
 
+/*
+  TABLA DE ALINEACIÓN — semántica con <table>
+  ============================================ */
 .alineacion {
   background: var(--c-surface);
   border: 1px solid var(--c-border2);
@@ -513,6 +601,12 @@ p { margin-bottom: 1rem; }
   overflow: hidden;
 }
 
+.alineacion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* <caption> visible como cabecera de la tabla */
 .alineacion-header {
   font-family: var(--f-mono);
   font-size: 0.9rem; letter-spacing: 0.3em;
@@ -521,29 +615,35 @@ p { margin-bottom: 1rem; }
   padding: 0.85rem 1.5rem;
   background: var(--c-surface2);
   border-bottom: 1px solid var(--c-border);
+  caption-side: top;
+  text-align: left;
 }
 
-.ali-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.alineacion-table th,
+.alineacion-table td {
   padding: 0.75rem 1.5rem;
   border-bottom: 1px solid var(--c-border);
   font-size: 1.05rem;
+  text-align: left;
+  vertical-align: middle;
 }
-.ali-row:last-child { border-bottom: none; }
 
-.ali-head {
+.alineacion-table tbody tr:last-child td { border-bottom: none; }
+
+.ali-head th {
   font-family: var(--f-mono);
   font-size: 0.88rem; letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--c-muted2);
   background: var(--c-bg);
+  font-weight: normal;
 }
 
+.ali-row td { color: var(--c-muted); }
+
 @media (max-width: 575px) {
-  .ali-row { grid-template-columns: 1fr; gap: 0.25rem; }
-  .ali-head span:last-child { display: none; }
+  .alineacion-table th:last-child,
+  .alineacion-table td:last-child { display: none; }
 }
 
 /* ============================================
@@ -626,35 +726,57 @@ p { margin-bottom: 1rem; }
   border-bottom: 1px solid var(--c-border);
 }
 
-.budget-row {
-  display: grid;
-  grid-template-columns: minmax(140px, 1.2fr) minmax(200px, 2.5fr) minmax(80px, auto);
-  gap: 0.5rem 1.5rem;
+/*
+  TABLA DE PRESUPUESTO — semántica con <table>
+  Sustituye los divs con display:grid.
+  Se mantienen las mismas clases para no romper
+  estilos existentes aplicados sobre las filas.
+*/
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.budget-table th,
+.budget-table td {
   padding: 0.65rem 1.5rem;
   border-bottom: 1px solid var(--c-border);
   font-size: 1.05rem;
   color: var(--c-muted);
-  align-items: center;
+  text-align: left;
+  vertical-align: middle;
 }
 
-.budget-head {
+/* Columna de precio: alineada a la derecha */
+.budget-table th:last-child,
+.budget-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Cabecera de tabla */
+.budget-head th {
   font-family: var(--f-mono);
   font-size: 0.88rem; letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--c-muted2);
   background: var(--c-bg);
+  font-weight: normal;
 }
 
-.budget-subtotal {
+/* Filas de totales */
+.budget-subtotal th,
+.budget-subtotal td {
   background: var(--c-surface2);
   color: var(--c-text);
   font-weight: 600;
   border-top: 1px solid var(--c-border2);
 }
 
-.budget-iva { color: var(--c-muted); }
+.budget-iva td { color: var(--c-muted); }
 
-.budget-total {
+.budget-total th,
+.budget-total td {
   background: rgba(240,192,64,0.07);
   border-top: 1px solid rgba(240,192,64,0.35);
   color: var(--c-white);
@@ -663,7 +785,12 @@ p { margin-bottom: 1rem; }
   letter-spacing: 0.04em;
 }
 
-.budget-total span:last-child { font-size: 1.25rem; font-weight: 700; }
+.budget-total td:last-child { font-size: 1.25rem; font-weight: 700; }
+
+/* <th scope="row"> en totales: alineación izquierda */
+.budget-subtotal th,
+.budget-iva th,
+.budget-total th { text-align: left; }
 
 .presup-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--c-border); }
 .presup-footer p { font-size: 1.05rem; color: var(--c-muted); margin: 0; line-height: 1.6; }
@@ -748,6 +875,13 @@ p { margin-bottom: 1rem; }
 }
 .gallery-item:hover { border-color: var(--c-gold-dk); }
 
+/* Foco por teclado en los items de galería (role="button" añadido por JS) */
+.gallery-item:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-color: var(--c-gold);
+}
+
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.6s var(--ease);
@@ -760,7 +894,8 @@ p { margin-bottom: 1rem; }
   opacity: 0; transition: opacity 0.3s;
   display: flex; align-items: flex-end; padding: 1rem;
 }
-.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-item:hover .gallery-item-overlay,
+.gallery-item:focus-visible .gallery-item-overlay { opacity: 1; }
 
 .gallery-item-label {
   font-family: var(--f-display);
@@ -1030,7 +1165,6 @@ p { margin-bottom: 1rem; }
   .section { padding: 5rem 0; }
   .hero-content { max-width: 100%; }
   .info-card { margin-bottom: 2rem; }
-  .budget-row { gap: 0.5rem 1rem; }
   .tools-cat { padding: 1.25rem; }
   .bloque-card { padding: 1.5rem; }
   .team-card { padding: 1.25rem; }
@@ -1040,14 +1174,11 @@ p { margin-bottom: 1rem; }
   .section { padding: 4rem 0; }
   .hero-date { display: none !important; }
   .hero-desc { font-size: 1rem; }
-  .budget-row { grid-template-columns: 1fr auto; }
-  .budget-row span:nth-child(2),
-  .budget-head span:nth-child(2) { display: none; }
+  /* Ocultar columna de detalle del presupuesto en móvil */
+  .budget-table th:nth-child(2),
+  .budget-table td:nth-child(2) { display: none; }
   .bloque-card { padding: 1.25rem; }
   .section-title { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-  .ali-row { grid-template-columns: 1fr; gap: 0.15rem; }
-  .ali-head span:last-child { display: none; }
-  .ali-row span:last-child { color: var(--c-muted); font-size: 0.9em; }
   #footer { padding: 3.5rem 0 1.5rem; }
   .footer-grid-border { padding-bottom: 2rem; }
   .personaje-bloque-header { flex-direction: column; gap: 0.75rem; }
@@ -1066,4 +1197,55 @@ p { margin-bottom: 1rem; }
   .gallery-tab-btn { padding: 0.45rem 0.85rem; font-size: 0.72rem; }
   .info-row { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
   .info-val { text-align: left; }
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION — WCAG 2.3.3 (Nivel AAA)
+   Respeta la preferencia del sistema operativo de
+   reducir o eliminar animaciones y transiciones.
+   Esencial para usuarios con epilepsia, vértigo
+   o sensibilidad al movimiento.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+  /*
+    Eliminar animaciones y transiciones de forma global.
+    !important necesario para sobrescribir animaciones inline.
+  */
+  *,
+  *::before,
+  *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
+  }
+
+  /* Desactivar el grano animado */
+  .grain { animation: none; opacity: 0.1; }
+
+  /*
+    Los títulos del hero usan opacity:0 + animation para aparecer.
+    Sin animaciones, quedarían invisibles: forzamos visibilidad.
+  */
+  .title-line-1,
+  .title-line-2,
+  .title-line-3,
+  .hero-desc,
+  .hero-client,
+  .hero-cta {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Los elementos reveal también quedan atrapados en opacity:0 */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Desactivar el canvas de brasas (controlado también en JS) */
+  #embers-canvas { display: none; }
 }
