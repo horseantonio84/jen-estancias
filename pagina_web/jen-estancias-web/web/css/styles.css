@@ -1249,3 +1249,64 @@ button:focus-visible {
   /* Desactivar el canvas de brasas (controlado también en JS) */
   #embers-canvas { display: none; }
 }
+
+/* ============================================
+   NAV LOGO — Imagen
+   ============================================ */
+.nav-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(240,192,64,0.35));
+  transition: filter 0.3s, transform 0.3s;
+  flex-shrink: 0;
+}
+.navbar-brand:hover .nav-logo-img {
+  filter: drop-shadow(0 0 14px rgba(240,192,64,0.6));
+  transform: scale(1.06);
+}
+@media (max-width: 480px) {
+  .nav-logo-img { width: 38px; height: 38px; }
+  .nav-sub { display: none; }
+}
+
+/* ============================================
+   HERO VIDEO — fondo lazy-loaded
+   ============================================ */
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+.hero-video.loaded { opacity: 1; }
+
+/* Reducir opacidad del gradient cuando hay vídeo activo */
+#hero:has(.hero-video.loaded) .hero-bg {
+  opacity: 0.55;
+}
+
+/* Reducir grano sobre el vídeo */
+#hero .grain { z-index: 1; }
+#hero .hero-bg,
+#hero .hero-overlay { z-index: 1; }
+#hero .hero-content-wrap { z-index: 2; }
+
+/* ============================================
+   CONTADOR INCREMENTAL — .stat-n
+   ============================================ */
+.stat-n {
+  display: inline-block;
+  transition: color 0.3s;
+}
+.stat-mini.counting .stat-n {
+  color: var(--c-gold-lt);
+}
+
+/* @media prefers-reduced-motion: el contador salta directo al valor final */
+@media (prefers-reduced-motion: reduce) {
+  .stat-n { transition: none; }
+}

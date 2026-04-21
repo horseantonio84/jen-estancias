@@ -265,9 +265,9 @@ const CHARACTERS = [
     ],
   },
   {
-    icon: '☪️', name: 'Muhammad al-Nasir', role: 'Rey Musulmán',
+    icon: '☪️', name: 'Muhammad an-Nasir', role: 'Rey Musulmán',
     desc: 'Califa almohade, antagonista principal. Comandó el ejército musulmán en la Batalla de las Navas de Tolosa, en uno de los enfrentamientos más decisivos de la Reconquista.',
-    folder: 'recursos_imagenes/personajes/Muhammad_al-Nasir_Rey_Musulman',
+    folder: 'recursos_imagenes/personajes/Muhammad_an-Nasir_Rey_Musulman',
     images: [
       { file: 'planoCuerpoEnteroDeFrenteReyMusulman.png',  label: 'Cuerpo — Frontal'   },
       { file: 'planoCaraReyMusulman.png',                  label: 'Cara — Frontal'     },
@@ -611,4 +611,116 @@ initGalleryItemA11y();
   btnClose.addEventListener('click', closeLightbox);
   btnPrev.addEventListener('click', e => { e.stopPropagation(); prevImage(); });
   btnNext.addEventListener('click', e => { e.stopPropagation(); nextImage(); });
+})();
+
+/* ============================================
+   CONTADOR INCREMENTAL — stat-n
+   Anima cada .stat-n desde 0 hasta su valor
+   cuando la tarjeta entra en el viewport.
+   ============================================ */
+(function initCounters() {
+  /* Si el usuario prefiere movimiento reducido, los valores ya son visibles */
+  if (prefersReducedMotion) return;
+
+  /**
+   * Extrae el prefijo ("+"), sufijo ("%" etc.) y el número base
+   * del texto de un elemento .stat-n
+   */
+  function parseValue(text) {
+    const cleaned = text.trim();
+    const prefix  = cleaned.match(/^[+\-]*/)?.[0] ?? '';
+    const suffix  = cleaned.match(/[^0-9]+$/)?.[0]  ?? '';
+    const num     = parseFloat(cleaned.replace(/[^0-9.]/g, ''));
+    return { prefix, suffix, num: isNaN(num) ? 0 : num };
+  }
+
+  /**
+   * Anima un único elemento con easing cuadrático.
+   * @param {HTMLElement} el   – elemento a animar
+   * @param {number} duration  – duración en ms
+   */
+  function animateCounter(el, duration = 1800) {
+    const { prefix, suffix, num } = parseValue(el.textContent);
+    /* Números enteros grandes (1212): sin decimales; porcentajes y pequeños: sin decimales también */
+    const decimals = num % 1 !== 0 ? 1 : 0;
+
+    let start = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      const elapsed  = ts - start;
+      const progress = Math.min(elapsed / duration, 1);
+      /* Ease-out cuadrático */
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      const current  = num * eased;
+
+      el.textContent = prefix + current.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        /* Asegurar valor exacto al final */
+        el.textContent = prefix + num.toFixed(decimals) + suffix;
+        el.closest('.stat-mini')?.classList.remove('counting');
+      }
+    }
+
+    el.closest('.stat-mini')?.classList.add('counting');
+    requestAnimationFrame(step);
+  }
+
+  /* Guardar los textos originales en data-target para poder reanimar si necesario */
+  document.querySelectorAll('.stat-n').forEach(el => {
+    el.dataset.target = el.textContent.trim();
+  });
+
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      /* Restaurar texto original por si el elemento fue re-observado */
+      el.textContent = el.dataset.target;
+      animateCounter(el, 1800);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.stat-n').forEach(el => counterObs.observe(el));
+})();
+
+/* ============================================
+   HERO VIDEO — Carga diferida (lazy)
+   El vídeo no descarga ningún byte hasta que
+   el hero entra en el viewport del usuario.
+   ============================================ */
+(function initHeroVideo() {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+
+  /* Si el usuario prefiere movimiento reducido, ocultar el vídeo */
+  if (prefersReducedMotion) {
+    video.remove();
+    return;
+  }
+
+  const heroObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+
+      /* Activar la carga del vídeo */
+      video.preload = 'auto';
+      video.load();
+
+      video.addEventListener('canplay', () => {
+        video.play().catch(() => { /* autoplay bloqueado: el poster se mantiene */ });
+        /* Fade-in suave */
+        video.classList.add('loaded');
+      }, { once: true });
+
+      /* Dejar de observar: solo se activa una vez */
+      heroObs.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+
+  heroObs.observe(document.getElementById('hero'));
 })();
