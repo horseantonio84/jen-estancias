@@ -145,7 +145,7 @@ sections.forEach(s => activeObs.observe(s));
 const CHARACTERS = [
   {
     icon: '👑', name: 'Alfonso VIII', role: 'Rey de Castilla',
-    desc: 'Personaje principal. Generado con IA a partir de documentación histórica sobre indumentaria, armas y rasgos físicos del rey castellano en la Batalla de las Navas de Tolosa (1212).',
+    desc: 'Alfonso VIII de Castilla fue rey desde 1158 hasta 1214, conocido como «el Noble» o «el de Las Navas».Nació en 1155 en Soria y murió en 1214 en Gutierre-Muñoz.',
     folder: 'recursos_imagenes/personajes/Alfonso_VIII',
     images: [
       { file: 'PlanoFrontalCuerpo.png',    label: 'Cuerpo — Frontal'    },
@@ -159,7 +159,7 @@ const CHARACTERS = [
   },
   {
     icon: '⚔️', name: 'Esteban', role: 'Soldado 1',
-    desc: 'Soldado cristiano de la hueste castellana. Modelado con IA con rigor histórico en armamento e indumentaria medieval.',
+    desc: 'Esteban Muñoz, soldado de 21 años, participó en la campaña de 1212 como parte del ejército cristiano.Joven combatiente, destacó por su valentía y determinación en la batalla.',
     folder: 'recursos_imagenes/personajes/Esteban_soldado1',
     images: [
       { file: 'PlanoCuerpoEnteroSoldado1.png',              label: 'Cuerpo — Frontal'   },
@@ -173,7 +173,7 @@ const CHARACTERS = [
   },
   {
     icon: '🛡️', name: 'Bautista', role: 'Soldado 2',
-    desc: 'Segundo soldado cristiano del contingente castellano. Diseño complementario al de Esteban con variantes de plano y perspectiva.',
+    desc: 'Bautista Ortega, soldado de 34 años, participó en la campaña de 1212 dentro del ejército cristiano.Con experiencia en combate, destacó por su firmeza y liderazgo en la batalla.',
     folder: 'recursos_imagenes/personajes/Bautista_soldado2',
     images: [
       { file: 'PlanoFrontalSoldado.png',          label: 'Cuerpo — Frontal'   },
@@ -187,7 +187,7 @@ const CHARACTERS = [
   },
   {
     icon: '👦', name: 'Fernando', role: 'El Niño',
-    desc: 'Personaje secundario. Hijo del protagonista, representa la esperanza y la continuidad del pueblo castellano ante la Reconquista.',
+    desc: 'Fernando, niño de 6 años, hijo de uno de los soldados del ejército cristiano en 1212.Demasiado joven para la guerra, representaba la familia y el hogar que quedaban atrás.',
     folder: 'recursos_imagenes/personajes/Fernando_hijo',
     images: [
       { file: 'planoCuerpoDeFrenteNiño.png',              label: 'Cuerpo — Frontal'   },
@@ -201,7 +201,7 @@ const CHARACTERS = [
   },
   {
     icon: '🗡️', name: 'Rodrigo', role: 'El Protagonista',
-    desc: 'Protagonista del cortometraje. Soldado castellano cuya historia personal entrelaza los grandes eventos de la batalla con la vida cotidiana del pueblo.',
+    desc: 'Rodrigo Romero, de 26 años, es el protagonista del corto y el centro de la historia en la campaña de 1212. Su papel no es solo de soldado, sino el de alguien que muestra todo lo que deja atrás al ir a la guerra.',
     folder: 'recursos_imagenes/personajes/Rodrigo_protagonista',
     images: [
       { file: 'Rodrigo_planoCuerpo.png', label: 'Cuerpo'            },
@@ -210,7 +210,7 @@ const CHARACTERS = [
   },
   {
     icon: '📜', name: 'Hernando', role: 'El Narrador',
-    desc: 'Narrador de la historia. Voz y presencia que guía al espectador a través de los eventos de la Batalla de las Navas de Tolosa.',
+    desc: 'Hernando, de 31 años, es el narrador del corto ambientado en la campaña de 1212. Su voz guía la historia, relatando los hechos y el destino de los personajes.',
     folder: 'recursos_imagenes/personajes/Hernando_narrador',
     images: [
       { file: 'NarradorDeFrente-SinFondo.png',           label: 'Cuerpo — Frontal'        },
@@ -224,7 +224,7 @@ const CHARACTERS = [
   },
   {
     icon: '👒', name: 'Pascasia', role: 'La Esposa',
-    desc: 'Personaje secundario. Esposa del protagonista, representa la vida en la retaguardia y el sacrificio del pueblo castellano durante la contienda.',
+    desc: 'Pascasia, de 24 años, es la esposa de Rodrigo Romero en el contexto del corto ambientado en 1212. Representa el hogar y la vida que él deja atrás al partir a la guerra.',
     folder: 'recursos_imagenes/personajes/Pascasia_esposa',
     images: [
       { file: 'EsposaDeFrente-removebg-preview.png',             label: 'Cuerpo — Frontal'        },
@@ -238,7 +238,7 @@ const CHARACTERS = [
   },
   {
     icon: '👑', name: 'Sancho VII', role: 'Rey de Navarra',
-    desc: 'Rey de Navarra aliado en la batalla. Figura histórica clave en la coalición cristiana que derrotó al ejército almohade en Las Navas de Tolosa.',
+    desc: 'Sancho VII de Navarra, conocido como "el Fuerte" o "el Encerrado", fue el último rey de la dinastía Jimena y reinó entre 1194 y 1234.',
     folder: 'recursos_imagenes/personajes/Sancho_VII',
     images: [
       { file: 'SanchoVII_planoFrontal_corporal.png',           label: 'Cuerpo — Frontal'   },
@@ -252,7 +252,7 @@ const CHARACTERS = [
   },
   {
     icon: '⚜️', name: 'Pedro II', role: 'Rey de Aragón',
-    desc: 'Rey de Aragón, aliado cristiano en la coalición. Figura decisiva en la victoria de Las Navas de Tolosa junto a Alfonso VIII y Sancho VII.',
+    desc: 'Pedro II de Aragón, conocido como «el Católico», fue rey de Aragón, conde de Barcelona y señor de Montpellier entre 1196 y 1213. Hijo de Alfonso II y Sancha de Castilla, murió en la batalla de Muret en 1213.',
     folder: 'recursos_imagenes/personajes/PEDRO_II',
     images: [
       { file: 'PedroIIDeFrente-removebg-preview.png',             label: 'Cuerpo — Frontal'        },
@@ -280,7 +280,7 @@ const CHARACTERS = [
   },
   {
     icon: '🌙', name: 'Hassan Ibn Muhammad', role: 'Soldado Musulmán',
-    desc: 'Soldado del ejército almohade. Contrapunto al soldado cristiano, representa la perspectiva del bando antagonista durante la batalla.',
+    desc: 'Hassan ibn Muhammad, soldado musulmán de 18 años, formó parte del ejército almohade en la campaña de 1212. Joven combatiente, luchó en el bando musulmán siguiendo las órdenes del califato.',
     folder: 'recursos_imagenes/personajes/Hassan_Ibn_Muhammad_soldado_musulman',
     images: [
       { file: 'planoCuerpoEnteroFrenteMoro.png',         label: 'Cuerpo — Frontal'   },
