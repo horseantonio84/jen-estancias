@@ -103,10 +103,10 @@
         <ul class="navbar-nav gap-lg-4 py-3 py-lg-0">
           <li class="nav-item"><a class="nav-link-custom" href="#proyecto">Proyecto</a></li>
           <li class="nav-item"><a class="nav-link-custom" href="#propuesta">Propuesta</a></li>
-          <li class="nav-item"><a class="nav-link-custom" href="#herramientas">Herramientas</a></li>
           <li class="nav-item"><a class="nav-link-custom" href="#presupuesto">Presupuesto</a></li>
           <li class="nav-item"><a class="nav-link-custom" href="#galeria">Galería</a></li>
           <li class="nav-item"><a class="nav-link-custom" href="#equipo">Equipo</a></li>
+          <li class="nav-item"><a class="nav-link-custom nav-link-highlight" href="#resultado">Resultado</a></li>
         </ul>
       </div>
     </div>
@@ -225,29 +225,74 @@
             <div class="row g-3" aria-label="Estadísticas del proyecto">
               <div class="col-4">
                 <div class="stat-mini">
-                  <span class="stat-n">1212</span>
+                  <span class="stat-n" data-target="1212" data-suffix="">1212</span>
                   <span class="stat-l">Año de la batalla</span>
                 </div>
               </div>
               <div class="col-4">
                 <div class="stat-mini">
-                  <span class="stat-n">99%</span>
+                  <span class="stat-n" data-target="99" data-suffix="%">99%</span>
                   <span class="stat-l">IA generativa</span>
                 </div>
               </div>
               <div class="col-4">
                 <div class="stat-mini">
-                  <span class="stat-n">+10</span>
+                  <span class="stat-n" data-target="10" data-prefix="+" data-suffix="">+10</span>
                   <span class="stat-l">Herramientas IA</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- VIDEO CONTEXTO HISTÓRICO -->
+        <div class="video-context-wrap reveal mt-5">
+          <div class="video-context-label" aria-hidden="true">▶ CONTEXTO HISTÓRICO</div>
+          <h3 class="video-context-title">La batalla que<br /><em>cambió la historia.</em></h3>
+          <p class="video-context-desc">Un recorrido audiovisual por los antecedentes, el desarrollo y las consecuencias de la Batalla de las Navas de Tolosa (1212), punto de inflexión decisivo en la historia de la Península Ibérica.</p>
+          <div class="video-context-player">
+            <div class="video-context-frame">
+              <!-- Sustituye el src por la URL de tu vídeo de YouTube/Vimeo o ruta local -->
+              <!-- Para YouTube: usa https://www.youtube.com/embed/TU_ID_VIDEO?rel=0&modestbranding=1 -->
+              <!-- Para Vimeo: usa https://player.vimeo.com/video/TU_ID_VIDEO -->
+              <!-- Para vídeo local: comenta el iframe y descomenta el <video> de abajo -->
+              <iframe
+                id="historia-video-iframe"
+                src="about:blank"
+                data-src="https://www.youtube.com/embed/sPxSAFDSZfA?rel=0&modestbranding=1&color=white"
+                title="Contexto histórico — Batalla de las Navas de Tolosa 1212"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+                aria-label="Vídeo: Contexto histórico de la Batalla de las Navas de Tolosa">
+              </iframe>
+              <!-- ALTERNATIVA: vídeo local
+              <video controls preload="metadata" poster="recursos_imagenes/escenarios/sierraMorena.png">
+                <source src="recursos_imagenes/videos/contexto_historico.mp4" type="video/mp4" />
+                Tu navegador no soporta vídeo HTML5.
+              </video>
+              -->
+              <div class="video-context-overlay" id="video-context-overlay">
+                <button class="video-play-btn" id="video-play-btn" aria-label="Reproducir vídeo de contexto histórico sobre la Batalla de las Navas de Tolosa">
+                  <span class="play-icon" aria-hidden="true">▶</span>
+                  <span class="play-label" aria-hidden="true">Ver contexto histórico</span>
+                </button>
+                <div class="video-overlay-meta" aria-hidden="true">
+                  <span>1212 · Navas de Tolosa</span>
+                </div>
+              </div>
+            </div>
+            <div class="video-context-caption">
+              <span class="video-caption-tag" aria-hidden="true">001</span>
+              Recurso audiovisual de contexto — complementario al cortometraje producido por JEN Productions
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- 002 · PROPUESTA TÉCNICA -->
+    <!-- 003 · PROPUESTA TÉCNICA -->
     <section id="propuesta" class="section section-dark" aria-labelledby="titulo-propuesta">
       <div class="container">
         <div class="section-label" aria-hidden="true">002 — Propuesta Técnica</div>
@@ -437,7 +482,7 @@
       </div>
     </section>
 
-    <!-- 004 · PRESUPUESTO -->
+    <!-- 006 · PRESUPUESTO -->
     <section id="presupuesto" class="section" aria-labelledby="titulo-presupuesto">
       <div class="container">
         <div class="section-label" aria-hidden="true">004 — Propuesta Económica</div>
@@ -763,47 +808,236 @@
       <div class="container">
         <div class="section-label" aria-hidden="true">006 — Equipo Profesional</div>
         <h2 id="titulo-equipo" class="section-title">Equipo<br /><em>asignado.</em></h2>
-        <div class="row g-4 mb-4">
+        <div class="row g-4 mb-4 justify-content-center">
+
+          <!-- Jose Antonio -->
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="team-card reveal h-100">
-              <div class="team-avatar flex-shrink-0">
-                <img src="recursos_imagenes/fotos_perfil/foto_Jose.jpeg" alt="Jose Antonio Fernández Iglesias" />
+            <div class="team-card reveal h-100" data-role="director">
+              <div class="team-card-top-bar" aria-hidden="true"></div>
+              <div class="team-card-header">
+                <div class="team-avatar-wrap">
+                  <div class="team-avatar">
+                    <img src="recursos_imagenes/fotos_perfil/foto_Jose.jpeg" alt="Jose Antonio Fernández Iglesias" />
+                  </div>
+                  <div class="team-avatar-ring" aria-hidden="true"></div>
+                </div>
+                <div class="team-specialty-tag" aria-hidden="true"><span>⚙️</span> Dirección</div>
               </div>
-              <div class="team-info">
-                <h3>Jose Antonio Fernández Iglesias</h3>
-                <p class="team-role">Director de Proyecto &amp; Producción</p>
-                <p class="team-desc">Responsable de la dirección general del proyecto, coordinación del equipo, gestión
-                  del repositorio GitHub y supervisión de la entrega final al cliente.</p>
+              <div class="team-card-body">
+                <h3 class="team-name">Jose Antonio<br/>Fernández Iglesias</h3>
+                <p class="team-role">Dirección de Proyecto &amp; Producción</p>
+                <div class="team-divider" aria-hidden="true"></div>
+                <ul class="team-list">
+                  <li>Coordinación general del equipo y planificación del corto</li>
+                  <li>Supervisión del estilo y coherencia de todos los vídeos generados</li>
+                  <li>Organización de escenas y revisión del montaje final</li>
+                  <li>Gestión del flujo de trabajo (qué se hace y cuándo)</li>
+                </ul>
               </div>
             </div>
           </div>
+
+          <!-- Elisabeth -->
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="team-card reveal h-100">
-              <div class="team-avatar flex-shrink-0">
-                <img src="recursos_imagenes/fotos_perfil/foto_Eli.jpeg" alt="Elisabeth Ruffolo García" />
+            <div class="team-card reveal h-100" data-role="guion">
+              <div class="team-card-top-bar" aria-hidden="true"></div>
+              <div class="team-card-header">
+                <div class="team-avatar-wrap">
+                  <div class="team-avatar">
+                    <img src="recursos_imagenes/fotos_perfil/foto_Eli.jpeg" alt="Elisabeth Ruffolo García" />
+                  </div>
+                  <div class="team-avatar-ring" aria-hidden="true"></div>
+                </div>
+                <div class="team-specialty-tag" aria-hidden="true"><span>✍️</span> Guion &amp; Historia</div>
               </div>
-              <div class="team-info">
-                <h3>Elisabeth Ruffolo García</h3>
+              <div class="team-card-body">
+                <h3 class="team-name">Elisabeth<br/>Ruffolo García</h3>
                 <p class="team-role">Guion e Investigación Histórica</p>
-                <p class="team-desc">A cargo de la investigación histórica, redacción del guion literario y técnico,
-                  documentación del proceso y coordinación con el contenido del Museo.</p>
+                <div class="team-divider" aria-hidden="true"></div>
+                <ul class="team-list">
+                  <li>Desarrollo del guion y estructura narrativa del corto</li>
+                  <li>Investigación histórica para mantener la ambientación correcta</li>
+                  <li>Diseño de personajes (personalidad, contexto y escenas clave)</li>
+                  <li>Apoyo en la coherencia de diálogos y narrativa</li>
+                </ul>
               </div>
             </div>
           </div>
+
+          <!-- Néstor -->
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="team-card reveal h-100">
-              <div class="team-avatar flex-shrink-0">
-                <img src="recursos_imagenes/fotos_perfil/foto_Nestor.jpeg" alt="Néstor Fernández García" />
+            <div class="team-card reveal h-100" data-role="visual">
+              <div class="team-card-top-bar" aria-hidden="true"></div>
+              <div class="team-card-header">
+                <div class="team-avatar-wrap">
+                  <div class="team-avatar">
+                    <img src="recursos_imagenes/fotos_perfil/foto_Nestor.jpeg" alt="Néstor Fernández García" />
+                  </div>
+                  <div class="team-avatar-ring" aria-hidden="true"></div>
+                </div>
+                <div class="team-specialty-tag" aria-hidden="true"><span>🎬</span> Visual &amp; Post</div>
               </div>
-              <div class="team-info">
-                <h3>Néstor Fernández García</h3>
+              <div class="team-card-body">
+                <h3 class="team-name">Néstor<br/>Fernández García</h3>
                 <p class="team-role">Generación Visual &amp; Postproducción</p>
-                <p class="team-desc">Responsable de la generación de imágenes y vídeo con IA, síntesis de audio, montaje
-                  del cortometraje y entrega de materiales finales.</p>
+                <div class="team-divider" aria-hidden="true"></div>
+                <ul class="team-list">
+                  <li>Generación de vídeos con IA (escenas del corto)</li>
+                  <li>Creación de personajes y ambientaciones visuales</li>
+                  <li>Montaje y edición del vídeo final</li>
+                  <li>Integración de audio, efectos y acabado visual</li>
+                </ul>
               </div>
             </div>
           </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- 007 · RESULTADO & DEFENSA -->
+    <section id="resultado" class="section section-dark" aria-labelledby="titulo-resultado">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">007 — Resultado &amp; Defensa</div>
+        <h2 id="titulo-resultado" class="section-title">El proyecto,<br /><em>en tu pantalla.</em></h2>
+        <p class="qr-intro">Escanea los códigos para acceder al cortometraje final y a la documentación de defensa del proyecto. Disponibles para visualización en cualquier dispositivo.</p>
+
+        <div class="row g-4 justify-content-center align-items-stretch qr-grid">
+
+          <!-- QR 1: Cortometraje resultado -->
+          <div class="col-12 col-sm-10 col-md-6 col-lg-5 d-flex">
+            <article class="qr-card reveal h-100" aria-labelledby="qr-title-01" aria-describedby="qr-desc-01">
+              <div class="qr-card-header">
+                <div class="qr-num" aria-hidden="true">01</div>
+                <div class="qr-card-meta">
+                  <div class="qr-card-tag" aria-hidden="true">RESULTADO FINAL</div>
+                  <h3 class="qr-card-title" id="qr-title-01">Cortometraje IA</h3>
+                  <p class="qr-card-desc" id="qr-desc-01">Accede al cortometraje histórico completo sobre la Batalla de las Navas de Tolosa, generado íntegramente con Inteligencia Artificial.</p>
+                </div>
+              </div>
+              <div class="qr-frame-wrap">
+                <div class="qr-frame" aria-describedby="qr-desc-01">
+                  <!-- Reemplaza el src con tu QR real generado en qr-code-generator.com u similar -->
+                  <!-- El QR debe apuntar a la URL del vídeo final (YouTube, Drive, etc.) -->
+                  <img
+                    src="recursos_imagenes/qr/qr_cortometraje.png"
+                    alt="Código QR para acceder al cortometraje Navas de Tolosa 1212"
+                    class="qr-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <!-- Placeholder visual si no hay imagen QR real -->
+                  <div class="qr-placeholder" aria-hidden="true" style="display:none;">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="10" y="10" width="55" height="55" fill="none" stroke="#f0c040" stroke-width="4"/>
+                      <rect x="22" y="22" width="31" height="31" fill="#f0c040"/>
+                      <rect x="135" y="10" width="55" height="55" fill="none" stroke="#f0c040" stroke-width="4"/>
+                      <rect x="147" y="22" width="31" height="31" fill="#f0c040"/>
+                      <rect x="10" y="135" width="55" height="55" fill="none" stroke="#f0c040" stroke-width="4"/>
+                      <rect x="22" y="147" width="31" height="31" fill="#f0c040"/>
+                      <rect x="85" y="10" width="10" height="10" fill="#f0c040"/>
+                      <rect x="100" y="10" width="10" height="10" fill="#f0c040"/>
+                      <rect x="85" y="25" width="10" height="10" fill="#f0c040"/>
+                      <rect x="105" y="30" width="10" height="10" fill="#f0c040"/>
+                      <rect x="85" y="45" width="15" height="10" fill="#f0c040"/>
+                      <rect x="135" y="85" width="10" height="10" fill="#f0c040"/>
+                      <rect x="150" y="85" width="10" height="10" fill="#f0c040"/>
+                      <rect x="160" y="95" width="15" height="10" fill="#f0c040"/>
+                      <rect x="135" y="110" width="20" height="10" fill="#f0c040"/>
+                      <rect x="85" y="85" width="40" height="40" fill="none" stroke="#f0c040" stroke-width="4"/>
+                      <rect x="95" y="95" width="20" height="20" fill="#f0c040"/>
+                      <rect x="10" y="85" width="60" height="10" fill="#f0c040"/>
+                      <rect x="10" y="100" width="10" height="10" fill="#f0c040"/>
+                      <rect x="30" y="100" width="10" height="10" fill="#f0c040"/>
+                      <rect x="50" y="100" width="20" height="10" fill="#f0c040"/>
+                      <rect x="10" y="115" width="60" height="10" fill="#f0c040"/>
+                      <rect x="85" y="140" width="10" height="60" fill="#f0c040"/>
+                      <rect x="100" y="140" width="10" height="10" fill="#f0c040"/>
+                      <rect x="115" y="140" width="10" height="10" fill="#f0c040"/>
+                      <rect x="100" y="155" width="20" height="10" fill="#f0c040"/>
+                      <rect x="100" y="170" width="10" height="10" fill="#f0c040"/>
+                      <rect x="115" y="160" width="10" height="30" fill="#f0c040"/>
+                      <text x="100" y="108" text-anchor="middle" fill="#0b0904" font-size="9" font-family="monospace" font-weight="bold">QR</text>
+                    </svg>
+                    <span class="qr-placeholder-label">Añade tu QR aquí</span>
+                  </div>
+                </div>
+                <div class="qr-scan-hint" aria-hidden="true">
+                  <span class="qr-scan-icon">📱</span> Escanea con la cámara
+                </div>
+              </div>
+              <div class="qr-card-footer" aria-label="Formato y duración">
+                <span class="qr-format-tag">🎬 Cortometraje · MP4</span>
+                <span class="qr-duration-tag">3–6 min</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- QR 2: Defensa del proyecto -->
+          <div class="col-12 col-sm-10 col-md-6 col-lg-5 d-flex">
+            <article class="qr-card qr-card--defense reveal h-100" aria-labelledby="qr-title-02" aria-describedby="qr-desc-02">
+              <div class="qr-card-header">
+                <div class="qr-num" aria-hidden="true">02</div>
+                <div class="qr-card-meta">
+                  <div class="qr-card-tag" aria-hidden="true">DEFENSA &amp; EXPLICACIÓN</div>
+                  <h3 class="qr-card-title" id="qr-title-02">Presentación del<br/>Proyecto</h3>
+                  <p class="qr-card-desc" id="qr-desc-02">Accede a la presentación completa de defensa del proyecto: proceso de producción, decisiones técnicas, herramientas empleadas y conclusiones del equipo JEN.</p>
+                </div>
+              </div>
+              <div class="qr-frame-wrap">
+                <div class="qr-frame qr-frame--defense" aria-describedby="qr-desc-02">
+                  <img
+                    src="recursos_imagenes/qr/qr_defensa.png"
+                    alt="Código QR para acceder a la defensa y presentación del Proyecto JEN Estancias 2026"
+                    class="qr-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <!-- Placeholder visual si no hay imagen QR real -->
+                  <div class="qr-placeholder qr-placeholder--defense" aria-hidden="true" style="display:none;">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="10" y="10" width="55" height="55" fill="none" stroke="#c8b870" stroke-width="4"/>
+                      <rect x="22" y="22" width="31" height="31" fill="#c8b870"/>
+                      <rect x="135" y="10" width="55" height="55" fill="none" stroke="#c8b870" stroke-width="4"/>
+                      <rect x="147" y="22" width="31" height="31" fill="#c8b870"/>
+                      <rect x="10" y="135" width="55" height="55" fill="none" stroke="#c8b870" stroke-width="4"/>
+                      <rect x="22" y="147" width="31" height="31" fill="#c8b870"/>
+                      <rect x="85" y="10" width="10" height="10" fill="#c8b870"/>
+                      <rect x="105" y="10" width="10" height="10" fill="#c8b870"/>
+                      <rect x="90" y="25" width="15" height="10" fill="#c8b870"/>
+                      <rect x="85" y="40" width="10" height="15" fill="#c8b870"/>
+                      <rect x="140" y="85" width="15" height="10" fill="#c8b870"/>
+                      <rect x="155" y="95" width="25" height="10" fill="#c8b870"/>
+                      <rect x="140" y="110" width="10" height="10" fill="#c8b870"/>
+                      <rect x="160" y="110" width="20" height="10" fill="#c8b870"/>
+                      <rect x="85" y="85" width="40" height="40" fill="none" stroke="#c8b870" stroke-width="4"/>
+                      <rect x="95" y="95" width="20" height="20" fill="#c8b870"/>
+                      <rect x="10" y="85" width="65" height="10" fill="#c8b870"/>
+                      <rect x="10" y="100" width="15" height="10" fill="#c8b870"/>
+                      <rect x="35" y="100" width="15" height="10" fill="#c8b870"/>
+                      <rect x="55" y="100" width="20" height="10" fill="#c8b870"/>
+                      <rect x="10" y="115" width="65" height="10" fill="#c8b870"/>
+                      <rect x="85" y="140" width="10" height="60" fill="#c8b870"/>
+                      <rect x="100" y="145" width="15" height="10" fill="#c8b870"/>
+                      <rect x="120" y="145" width="10" height="10" fill="#c8b870"/>
+                      <rect x="100" y="160" width="10" height="10" fill="#c8b870"/>
+                      <rect x="115" y="160" width="15" height="10" fill="#c8b870"/>
+                      <rect x="100" y="175" width="30" height="10" fill="#c8b870"/>
+                      <text x="100" y="108" text-anchor="middle" fill="#0b0904" font-size="9" font-family="monospace" font-weight="bold">QR</text>
+                    </svg>
+                    <span class="qr-placeholder-label">Añade tu QR aquí</span>
+                  </div>
+                </div>
+                <div class="qr-scan-hint" aria-hidden="true">
+                  <span class="qr-scan-icon">📱</span> Escanea con la cámara
+                </div>
+              </div>
+              <div class="qr-card-footer" aria-label="Formato del recurso">
+                <span class="qr-format-tag">📄 Presentación</span>
+                <span class="qr-duration-tag">JEN · 2026</span>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /qr-grid -->
       </div>
     </section>
 
@@ -823,9 +1057,9 @@
           <nav aria-label="Mapa del sitio">
             <a href="#proyecto" class="footer-link">El Proyecto</a>
             <a href="#propuesta" class="footer-link">Propuesta Técnica</a>
-            <a href="#herramientas" class="footer-link">Herramientas</a>
             <a href="#presupuesto" class="footer-link">Presupuesto</a>
             <a href="#equipo" class="footer-link">Equipo</a>
+            <a href="#resultado" class="footer-link">Resultado &amp; Defensa</a>
           </nav>
         </div>
         <div class="col-6 col-lg-3">
@@ -864,6 +1098,76 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // ── CONTADORES ANIMADOS EN ESTADÍSTICAS ──
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function animateCounter(el) {
+        if (el.dataset.counted) return;
+        el.dataset.counted = 'true';
+
+        const target   = parseInt(el.dataset.target, 10);
+        const prefix   = el.dataset.prefix  || '';
+        const suffix   = el.dataset.suffix  || '';
+        const duration = prefersReduced ? 0 : 1600;
+        const start    = performance.now();
+        // Para 1212 arrancamos desde 1100 para que no sea tan lento
+        const from     = target > 100 ? Math.floor(target * 0.88) : 0;
+
+        function step(now) {
+          const elapsed  = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out quint
+          const eased    = 1 - Math.pow(1 - progress, 4);
+          const current  = Math.round(from + (target - from) * eased);
+          el.textContent = prefix + current + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+
+        if (prefersReduced) {
+          el.textContent = prefix + target + suffix;
+        } else {
+          requestAnimationFrame(step);
+        }
+      }
+
+      const statObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target.querySelector('.stat-n[data-target]');
+          if (el) animateCounter(el);
+          statObs.unobserve(e.target);
+        });
+      }, { threshold: 0.6 });
+
+      document.querySelectorAll('.stat-mini').forEach(el => statObs.observe(el));
+    })();
+
+    // ── VÍDEO CONTEXTO HISTÓRICO — lazy load iframe al hacer clic ──
+    (function () {
+      const overlay = document.getElementById('video-context-overlay');
+      const playBtn = document.getElementById('video-play-btn');
+      const iframe  = document.getElementById('historia-video-iframe');
+      if (!overlay || !playBtn || !iframe) return;
+
+      function activateVideo() {
+        const src = iframe.dataset.src;
+        if (!src) return;
+        iframe.src = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        iframe.focus();
+        setTimeout(() => { overlay.style.display = 'none'; }, 400);
+      }
+
+      overlay.addEventListener('click', activateVideo);
+      playBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateVideo(); }
+      });
+    })();
+  </script>
   <noscript>
     <style>
       .noscript-warn {
