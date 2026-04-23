@@ -501,7 +501,7 @@ initGalleryItemA11y();
     overlay.classList.remove('open');
 
     /* Limpiar imagen para liberar memoria y evitar flash al volver a abrir */
-    img.src = '';
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
     img.alt = '';
 
     document.body.style.overflow = '';
